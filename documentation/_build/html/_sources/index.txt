@@ -8,6 +8,7 @@ Welcome to Historische Tennis Daten's documentation!
 
 by HEIM:SPIEL Medien GmbH & Co. KG
 
+* Git Repository: https://github.com/JustNicosh/Historische-Tennis-Daten/
 * Reqirements: python 3
 * Documentation made with sphinx
 
