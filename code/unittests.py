@@ -3,6 +3,7 @@
 
 import unittest
 import profiles
+import os
 
 class TestProfileHandler(unittest.TestCase):
     """Unittests for the class ProfileHandler.
@@ -14,11 +15,15 @@ class TestProfileHandler(unittest.TestCase):
         self.assertGreater(len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_atp-master/', 'id': 'atp'})), 0)
         self.assertGreater(len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_wta-master/', 'id': 'wta'})), 0)
 
-
     def test_return_matches_csv_paths(self):
         """Do we get the sum of strings in comparison to both genders?
         """
         self.assertEqual(len(profiles.ProfileHandler().return_matches_csv_paths()), len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_wta-master/', 'id': 'wta'})) + len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_atp-master/', 'id': 'atp'})))
 
+    def test_cyclomatic_complexity(self):
+        """Checks the cyclomatic complexity of the class ProfileHandler and all its methods in profiles.py.
+        """
+        os.system('radon cc -a profiles.py')
+
 if __name__ == '__main__':
-	unittest.main()
+    unittest.main()

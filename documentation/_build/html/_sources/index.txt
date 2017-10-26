@@ -8,10 +8,15 @@ Welcome to Historische Tennis Daten's documentation!
 
 by HEIM:SPIEL Medien GmbH & Co. KG
 
-* Git Repository: https://github.com/JustNicosh/Historische-Tennis-Daten/
-* Reqirements: python 3
-* Documentation made with sphinx
+https://github.com/JustNicosh/Historische-Tennis-Daten/
 
+Requirements
+============
+* python 3 (https://www.python.org/)
+* radon (https://pypi.python.org/pypi/radon)
+
+Information
+===========
 
 .. toctree::
 	:maxdepth: 2
