@@ -46,6 +46,18 @@
 <em class="property">class </em><code class="descclassname">profiles.</code><code class="descname">ProfileHandler</code><a class="headerlink" href="#profiles.ProfileHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle player profile data.</p>
 <dl class="method">
+<dt id="profiles.ProfileHandler.append_absent_players">
+<code class="descname">append_absent_players</code><span class="sig-paren">(</span><em>row</em>, <em>tourneyColumn</em>, <em>playerList</em>, <em>dataGradSlamIdentifiers</em>, <em>winnerIdColumn</em>, <em>winnerNameColumn</em>, <em>loserIdColumn</em>, <em>loserNameColumn</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.append_absent_players" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append all absent players to a list of players.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profiles.ProfileHandler.return_all_different_players">
+<code class="descname">return_all_different_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.return_all_different_players" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with all Grand Slam Players of our data.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="profiles.ProfileHandler.return_csv_contents">
 <code class="descname">return_csv_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.return_csv_contents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the contents of several csv files stored in a list.</p>
@@ -71,13 +83,25 @@
 <dl class="function">
 <dt id="tests.test_cyclomatic_complexity">
 <code class="descclassname">tests.</code><code class="descname">test_cyclomatic_complexity</code><span class="sig-paren">(</span><em>pyDoc</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_cyclomatic_complexity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks the cyclomatic complexity of all classes and methods in a give python document.</p>
+<dd><p>Checks the cyclomatic complexity of all classes, functions and methods in a give python document.</p>
 </dd></dl>
 
 <dl class="class">
 <dt id="tests.TestProfileHandler">
 <em class="property">class </em><code class="descclassname">tests.</code><code class="descname">TestProfileHandler</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unittests for the class ProfileHandler.</p>
+<dl class="method">
+<dt id="tests.TestProfileHandler.test_append_absent_players">
+<code class="descname">test_append_absent_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_append_absent_players" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function append all absent players? Does the function only append absent players?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestProfileHandler.test_return_all_different_players">
+<code class="descname">test_return_all_different_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_return_all_different_players" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we get a list of different persons (known data -&gt; 3653)?</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="tests.TestProfileHandler.test_return_csv_contents">
 <code class="descname">test_return_csv_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_return_csv_contents" title="Permalink to this definition">¶</a></dt>
@@ -93,7 +117,7 @@
 <dl class="method">
 <dt id="tests.TestProfileHandler.test_return_matches_csv_paths_for_single_gender">
 <code class="descname">test_return_matches_csv_paths_for_single_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_return_matches_csv_paths_for_single_gender" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do both genders return strings?</p>
+<dd><p>Do both genders return strings (known data -&gt; 50)?</p>
 </dd></dl>
 
 </dd></dl>

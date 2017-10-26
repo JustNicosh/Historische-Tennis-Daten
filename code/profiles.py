@@ -16,6 +16,11 @@ class ProfileHandler():
 		self.firstYear = 1968
 		self.lastYear = 2017
 		self.dataEnding = '.csv'
+		self.tourneyColumn = 1
+		self.winnerIdColumn = 7
+		self.winnerNameColumn = 10
+		self.loserIdColumn = 17
+		self.loserNameColumn = 20
 
 	def return_matches_csv_paths_for_single_gender(self, gender):
 		"""Returns relative paths to matchresults-csvs for a single gender.
@@ -43,9 +48,29 @@ class ProfileHandler():
 			csvContent = csv_handler.CsvHandler().read_csv(path, 'r', 'latin-1')
 			csvcontents.append(csvContent)
 		return csvcontents
+
+	def append_absent_players(self, row, tourneyColumn, playerList, dataGradSlamIdentifiers, winnerIdColumn, winnerNameColumn, loserIdColumn, loserNameColumn):
+		"""Append all absent players to a list of players.
+		"""
+		if row[tourneyColumn] in dataGradSlamIdentifiers:
+			if {'id': row[winnerIdColumn], 'name': row[winnerNameColumn]} not in playerList:
+				playerList.append({'id': row[winnerIdColumn], 'name': row[winnerNameColumn]})
+			if {'id': row[loserIdColumn], 'name': row[loserNameColumn]} not in playerList:
+				playerList.append({'id': row[loserIdColumn], 'name': row[loserNameColumn]})
+		return playerList
+
+	def return_all_different_players(self):
+		"""Returns a list with all Grand Slam Players of our data.
+		"""
+		csvcontents = self.return_csv_contents()
+		playerList = []
+		for matchList in csvcontents:
+			for row in matchList:
+				playerList = self.append_absent_players(row, self.tourneyColumn, playerList, self.dataGradSlamIdentifiers, self.winnerIdColumn, self.winnerNameColumn, self.loserIdColumn, self.loserNameColumn)
+		return playerList
 			
 	def dev(self):
-		print(len(self.return_csv_contents()))
+		print(len(self.return_all_different_players()))
 
 if __name__ == '__main__':
 	ProfileHandler().dev()
