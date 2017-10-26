@@ -1,0 +1,21 @@
+#!/usr/bin/python
+# -*- coding: iso-8859-1 -*-
+
+import csv
+
+class CsvHandler():
+    """Handle csv data.
+    """
+
+    def read_csv(self, path, configFormat = 'rb', configEncoding = 'utf-8', configDelimiter = ',', configQuotechar = '|'):
+        """Returns the content of a csv document.
+        """
+        outputList = []
+        csvFile = open(path, configFormat, encoding = configEncoding)
+        reader = csv.reader(csvFile, delimiter = configDelimiter, quotechar = configQuotechar)
+
+        for row in reader:
+            if len(row) > 0:
+                outputList.append(row)
+        csvFile.close()
+        return outputList

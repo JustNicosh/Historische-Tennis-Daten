@@ -1,9 +1,15 @@
 #!/usr/bin/python
 # -*- coding: iso-8859-1 -*-
 
-import unittest
 import profiles
 import os
+import unittest
+
+def test_cyclomatic_complexity(pyDoc):
+    """Checks the cyclomatic complexity of all classes, functions and methods in a give python document.
+    """
+    os.system('radon cc -a ' + pyDoc)
+    print('')
 
 class TestProfileHandler(unittest.TestCase):
     """Unittests for the class ProfileHandler.
@@ -20,10 +26,12 @@ class TestProfileHandler(unittest.TestCase):
         """
         self.assertEqual(len(profiles.ProfileHandler().return_matches_csv_paths()), len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_wta-master/', 'id': 'wta'})) + len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_atp-master/', 'id': 'atp'})))
 
-    def test_cyclomatic_complexity(self):
-        """Checks the cyclomatic complexity of the class ProfileHandler and all its methods in profiles.py.
+    def test_return_csv_contents(self):
+        """Do we get the sum of csv contents in comparison to both genders?
         """
-        os.system('radon cc -a profiles.py')
+        self.assertEqual(len(profiles.ProfileHandler().return_csv_contents()), len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_wta-master/', 'id': 'wta'})) + len(profiles.ProfileHandler().return_matches_csv_paths_for_single_gender({'source': '/tennis_atp-master/', 'id': 'atp'})))
 
 if __name__ == '__main__':
+    test_cyclomatic_complexity('csv_handler.py')
+    test_cyclomatic_complexity('profiles.py')
     unittest.main()

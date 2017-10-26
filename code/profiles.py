@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: iso-8859-1 -*-
 
+import csv_handler
+
 class ProfileHandler():
 	"""Handle player profile data.
 	"""
@@ -32,13 +34,18 @@ class ProfileHandler():
 			csvpaths += self.return_matches_csv_paths_for_single_gender(gender)
 		return csvpaths
 
-	def dev(self):
-		print(self.return_matches_csv_paths())
-
-		#csvFile = open(str, 'rb')
-		#reader = csv.reader(csvFile, delimiter=',', quotechar='|')
+	def return_csv_contents(self):
+		"""Returns the contents of several csv files stored in a list.
+		"""
+		csvcontents = []
+		csvpaths = self.return_matches_csv_paths()
+		for path in csvpaths:
+			csvContent = csv_handler.CsvHandler().read_csv(path, 'r', 'latin-1')
+			csvcontents.append(csvContent)
+		return csvcontents
 			
-
+	def dev(self):
+		print(len(self.return_csv_contents()))
 
 if __name__ == '__main__':
 	ProfileHandler().dev()
