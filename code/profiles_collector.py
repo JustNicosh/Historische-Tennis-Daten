@@ -3,8 +3,8 @@
 
 import csv_handler
 
-class ProfileHandler():
-	"""Handle player profile data.
+class ProfilesCollector():
+	"""Collects all different Grad Slam player profiles.
 	"""
 
 	def __init__(self):
@@ -106,11 +106,12 @@ class ProfileHandler():
 			allGrandSlamProfiles.append(profile)
 		return allGrandSlamProfiles
 
-	def dev(self):
+	def write_csv(self, outputPath):
+		"""Writes a csv document containing all grand slam player profiles.
+		"""
 		allGrandSlamProfiles = self.return_all_grand_slam_profiles()
-		csv_handler.CsvHandler().create_csv(allGrandSlamProfiles, 'allGrandSlamProfiles.csv')
-
-		
+		csv_handler.CsvHandler().create_csv(allGrandSlamProfiles, outputPath)
+		return outputPath
 
 if __name__ == '__main__':
-	ProfileHandler().dev()
+	ProfilesCollector().write_csv('../data/allGrandSlamProfiles.csv')

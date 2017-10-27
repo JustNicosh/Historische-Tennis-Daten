@@ -4,14 +4,14 @@ Documentation for the Code
 Player Profiles
 ===============
 
-.. automodule:: profiles
-	:members: ProfileHandler
+.. automodule:: profiles_collector
+	:members: ProfilesCollector
 
 Tests
 =========
 
 .. automodule:: tests
-	:members: test_cyclomatic_complexity, TestProfileHandler
+	:members: test_cyclomatic_complexity, TestProfilesCollector
 
 CSV Handler
 ===========

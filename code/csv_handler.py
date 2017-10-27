@@ -20,11 +20,11 @@ class CsvHandler():
         csvFile.close()
         return outputList
 
-    def create_csv(self, content, name):
+    def create_csv(self, content, path):
         """Creates a new csv document.
         """
         inputList = content
-        csvFile = open(name, 'a')
+        csvFile = open(path, 'a')
         writer = csv.writer(csvFile)
 
         for item in inputList:
@@ -33,3 +33,4 @@ class CsvHandler():
             else:
                 writer.writerow([item])
         csvFile.close()
+        return csvFile
