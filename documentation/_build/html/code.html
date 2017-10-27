@@ -48,13 +48,37 @@
 <dl class="method">
 <dt id="profiles.ProfileHandler.append_absent_players">
 <code class="descname">append_absent_players</code><span class="sig-paren">(</span><em>row</em>, <em>tourneyColumn</em>, <em>playerList</em>, <em>dataGradSlamIdentifiers</em>, <em>winnerIdColumn</em>, <em>winnerNameColumn</em>, <em>loserIdColumn</em>, <em>loserNameColumn</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.append_absent_players" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append all absent players to a list of players.</p>
+<dd><p>Appends all absent players to a list of players.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profiles.ProfileHandler.append_gender">
+<code class="descname">append_gender</code><span class="sig-paren">(</span><em>profiles</em>, <em>gender</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.append_gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends gender ids to all items of a list of gender specific profiles.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profiles.ProfileHandler.identify_same_profile">
+<code class="descname">identify_same_profile</code><span class="sig-paren">(</span><em>allProfiles</em>, <em>gradSlamPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.identify_same_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matches all players with same id (caution: same id can occur twice, male and female) and name.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="profiles.ProfileHandler.return_all_different_players">
 <code class="descname">return_all_different_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.return_all_different_players" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list with all Grand Slam Players of our data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profiles.ProfileHandler.return_all_different_profiles">
+<code class="descname">return_all_different_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.return_all_different_profiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with all Person Profiles (ATP and WTA).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="profiles.ProfileHandler.return_all_grand_slam_profiles">
+<code class="descname">return_all_grand_slam_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles.ProfileHandler.return_all_grand_slam_profiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with all Grand Slam Player Profiles.</p>
 </dd></dl>
 
 <dl class="method">
@@ -97,9 +121,33 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="tests.TestProfileHandler.test_append_gender">
+<code class="descname">test_append_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_append_gender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function appends the gender id?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestProfileHandler.test_identify_same_profile">
+<code class="descname">test_identify_same_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_identify_same_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function only match compossible data?</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="tests.TestProfileHandler.test_return_all_different_players">
 <code class="descname">test_return_all_different_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_return_all_different_players" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do we get a list of different persons (known data -&gt; 3653)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestProfileHandler.test_return_all_different_profiles">
+<code class="descname">test_return_all_different_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_return_all_different_profiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we get a list of persons profiles (known data -&gt; 73422)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="tests.TestProfileHandler.test_return_all_grand_slam_profiles">
+<code class="descname">test_return_all_grand_slam_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfileHandler.test_return_all_grand_slam_profiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we get a list of all grand slam persons profiles (known data -&gt; 3653)?</p>
 </dd></dl>
 
 <dl class="method">
@@ -129,6 +177,12 @@
 <dt id="csv_handler.CsvHandler">
 <em class="property">class </em><code class="descclassname">csv_handler.</code><code class="descname">CsvHandler</code><a class="headerlink" href="#csv_handler.CsvHandler" title="Permalink to this definition">¶</a></dt>
 <dd><p>Handle csv data.</p>
+<dl class="method">
+<dt id="csv_handler.CsvHandler.create_csv">
+<code class="descname">create_csv</code><span class="sig-paren">(</span><em>content</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#csv_handler.CsvHandler.create_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new csv document.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="csv_handler.CsvHandler.read_csv">
 <code class="descname">read_csv</code><span class="sig-paren">(</span><em>path</em>, <em>configFormat='rb'</em>, <em>configEncoding='utf-8'</em>, <em>configDelimiter='</em>, <em>'</em>, <em>configQuotechar='|'</em><span class="sig-paren">)</span><a class="headerlink" href="#csv_handler.CsvHandler.read_csv" title="Permalink to this definition">¶</a></dt>

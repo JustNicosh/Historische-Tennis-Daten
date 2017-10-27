@@ -19,3 +19,17 @@ class CsvHandler():
                 outputList.append(row)
         csvFile.close()
         return outputList
+
+    def create_csv(self, content, name):
+        """Creates a new csv document.
+        """
+        inputList = content
+        csvFile = open(name, 'a')
+        writer = csv.writer(csvFile)
+
+        for item in inputList:
+            if type(item) == list:
+                writer.writerow(item)
+            else:
+                writer.writerow([item])
+        csvFile.close()

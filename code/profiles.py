@@ -50,7 +50,7 @@ class ProfileHandler():
 		return csvcontents
 
 	def append_absent_players(self, row, tourneyColumn, playerList, dataGradSlamIdentifiers, winnerIdColumn, winnerNameColumn, loserIdColumn, loserNameColumn):
-		"""Append all absent players to a list of players.
+		"""Appends all absent players to a list of players.
 		"""
 		if row[tourneyColumn] in dataGradSlamIdentifiers:
 			if {'id': row[winnerIdColumn], 'name': row[winnerNameColumn]} not in playerList:
@@ -68,9 +68,49 @@ class ProfileHandler():
 			for row in matchList:
 				playerList = self.append_absent_players(row, self.tourneyColumn, playerList, self.dataGradSlamIdentifiers, self.winnerIdColumn, self.winnerNameColumn, self.loserIdColumn, self.loserNameColumn)
 		return playerList
-			
+
+	def append_gender(self, profiles, gender):
+		"""Appends gender ids to all items of a list of gender specific profiles.
+		"""
+		for profile in profiles:
+			profile.append(gender['id'])
+		return profiles
+
+	def return_all_different_profiles(self):
+		"""Returns a list with all Person Profiles (ATP and WTA).
+		"""
+		allDifferentProfiles = []
+		for gender in self.dataGenderSources:
+			path = self.dataMainSource + gender['source'] + gender['id'] + '_' + self.dataProfilesIdentifier + self.dataEnding
+			csvContent = csv_handler.CsvHandler().read_csv(path, 'r', 'latin-1')
+			singleGenderProfiles = self.append_gender(csvContent, gender)
+			allDifferentProfiles += singleGenderProfiles
+		return allDifferentProfiles
+	
+	def identify_same_profile(self, allProfiles, gradSlamPlayer):
+		"""Matches all players with same id (caution: same id can occur twice, male and female) and name.
+		"""
+		for profile in allProfiles:
+			if gradSlamPlayer['id'] == profile[0] and profile[1] in gradSlamPlayer['name'] and profile[2] in gradSlamPlayer['name']:
+				return profile
+		return None
+
+	def return_all_grand_slam_profiles(self):
+		"""Returns a list with all Grand Slam Player Profiles.
+		"""
+		differentGradSlamPlayers = self.return_all_different_players()
+		allProfiles = self.return_all_different_profiles()
+		allGrandSlamProfiles = []
+		for gradSlamPlayer in differentGradSlamPlayers:
+			profile = self.identify_same_profile(allProfiles, gradSlamPlayer)
+			allGrandSlamProfiles.append(profile)
+		return allGrandSlamProfiles
+
 	def dev(self):
-		print(len(self.return_all_different_players()))
+		allGrandSlamProfiles = self.return_all_grand_slam_profiles()
+		csv_handler.CsvHandler().create_csv(allGrandSlamProfiles, 'allGrandSlamProfiles.csv')
+
+		
 
 if __name__ == '__main__':
 	ProfileHandler().dev()
