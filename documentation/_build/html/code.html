@@ -39,145 +39,139 @@
             
   <div class="section" id="documentation-for-the-code">
 <h1>Documentation for the Code<a class="headerlink" href="#documentation-for-the-code" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-profiles_collector">
-<span id="player-profiles"></span><h2>Player Profiles<a class="headerlink" href="#module-profiles_collector" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-profiles_and_matches_collector">
+<span id="player-profiles"></span><h2>Player Profiles<a class="headerlink" href="#module-profiles_and_matches_collector" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="profiles_collector.ProfilesCollector">
-<em class="property">class </em><code class="descclassname">profiles_collector.</code><code class="descname">ProfilesCollector</code><a class="headerlink" href="#profiles_collector.ProfilesCollector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collects all different Grad Slam player profiles.</p>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector">
+<em class="property">class </em><code class="descclassname">profiles_and_matches_collector.</code><code class="descname">ProfilesAndMatchesCollector</code><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects all different Grad Slam player profiles and matches.</p>
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.append_absent_players">
-<code class="descname">append_absent_players</code><span class="sig-paren">(</span><em>row</em>, <em>tourneyColumn</em>, <em>playerList</em>, <em>dataGradSlamIdentifiers</em>, <em>winnerIdColumn</em>, <em>winnerNameColumn</em>, <em>loserIdColumn</em>, <em>loserNameColumn</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.append_absent_players" title="Permalink to this definition">¶</a></dt>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.append_absent_players">
+<code class="descname">append_absent_players</code><span class="sig-paren">(</span><em>row</em>, <em>tourneyColumn</em>, <em>playerList</em>, <em>dataGradSlamIdentifiers</em>, <em>winnerIdColumn</em>, <em>winnerNameColumn</em>, <em>loserIdColumn</em>, <em>loserNameColumn</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.append_absent_players" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends all absent players to a list of players.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.append_gender">
-<code class="descname">append_gender</code><span class="sig-paren">(</span><em>profiles</em>, <em>gender</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.append_gender" title="Permalink to this definition">¶</a></dt>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.append_gender">
+<code class="descname">append_gender</code><span class="sig-paren">(</span><em>profiles</em>, <em>gender</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.append_gender" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends gender ids to all items of a list of gender specific profiles.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.identify_same_profile">
-<code class="descname">identify_same_profile</code><span class="sig-paren">(</span><em>allProfiles</em>, <em>gradSlamPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.identify_same_profile" title="Permalink to this definition">¶</a></dt>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.identify_same_profile">
+<code class="descname">identify_same_profile</code><span class="sig-paren">(</span><em>allProfiles</em>, <em>gradSlamPlayer</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.identify_same_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Matches all players with same id (caution: same id can occur twice, male and female) and name.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.return_all_different_players">
-<code class="descname">return_all_different_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.return_all_different_players" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list with all Grand Slam Players of our data.</p>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.return_all_different_players_and_matches">
+<code class="descname">return_all_different_players_and_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.return_all_different_players_and_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with all Grand Slam layers and all Grand Slam matches of our data.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.return_all_different_profiles">
-<code class="descname">return_all_different_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.return_all_different_profiles" title="Permalink to this definition">¶</a></dt>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.return_all_different_profiles">
+<code class="descname">return_all_different_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.return_all_different_profiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a list with all Person Profiles (ATP and WTA).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.return_all_grand_slam_profiles">
-<code class="descname">return_all_grand_slam_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.return_all_grand_slam_profiles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list with all Grand Slam Player Profiles.</p>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.return_all_grand_slam_profiles_and_matches">
+<code class="descname">return_all_grand_slam_profiles_and_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.return_all_grand_slam_profiles_and_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with all Grand Slam player profiles and all Grand Slam matches.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.return_csv_contents">
-<code class="descname">return_csv_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.return_csv_contents" title="Permalink to this definition">¶</a></dt>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.return_csv_contents">
+<code class="descname">return_csv_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.return_csv_contents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the contents of several csv files stored in a list.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.return_matches_csv_paths">
-<code class="descname">return_matches_csv_paths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.return_matches_csv_paths" title="Permalink to this definition">¶</a></dt>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.return_matches_csv_paths">
+<code class="descname">return_matches_csv_paths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.return_matches_csv_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns relative paths to matchresults-csvs for a both genders.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.return_matches_csv_paths_for_single_gender">
-<code class="descname">return_matches_csv_paths_for_single_gender</code><span class="sig-paren">(</span><em>gender</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.return_matches_csv_paths_for_single_gender" title="Permalink to this definition">¶</a></dt>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.return_matches_csv_paths_for_single_gender">
+<code class="descname">return_matches_csv_paths_for_single_gender</code><span class="sig-paren">(</span><em>gender</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.return_matches_csv_paths_for_single_gender" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns relative paths to matchresults-csvs for a single gender.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="profiles_collector.ProfilesCollector.write_csv">
-<code class="descname">write_csv</code><span class="sig-paren">(</span><em>outputPath</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_collector.ProfilesCollector.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes a csv document containing all grand slam player profiles.</p>
+<dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.write_csvs">
+<code class="descname">write_csvs</code><span class="sig-paren">(</span><em>outputPathProfiles</em>, <em>outputPathMatches</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.write_csvs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes one csv document containing all Grand Slam player profiles and one containing all Grand Slam matches.</p>
 </dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="module-tests">
-<span id="tests"></span><h2>Tests<a class="headerlink" href="#module-tests" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="tests.test_cyclomatic_complexity">
-<code class="descclassname">tests.</code><code class="descname">test_cyclomatic_complexity</code><span class="sig-paren">(</span><em>pyDoc</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_cyclomatic_complexity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Checks the cyclomatic complexity of all classes, functions and methods in a give python document.</p>
-</dd></dl>
-
+<div class="section" id="module-test_profiles_and_matches_collector">
+<span id="tests"></span><h2>Tests<a class="headerlink" href="#module-test_profiles_and_matches_collector" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="tests.TestProfilesCollector">
-<em class="property">class </em><code class="descclassname">tests.</code><code class="descname">TestProfilesCollector</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unittests for the class ProfilesCollector.</p>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector">
+<em class="property">class </em><code class="descclassname">test_profiles_and_matches_collector.</code><code class="descname">TestProfilesAndMatchesCollector</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class ProfilesAndMatchesCollector.</p>
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_append_absent_players">
-<code class="descname">test_append_absent_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_append_absent_players" title="Permalink to this definition">¶</a></dt>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_append_absent_players">
+<code class="descname">test_append_absent_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_append_absent_players" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function append all absent players? Does the function only append absent players?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_append_gender">
-<code class="descname">test_append_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_append_gender" title="Permalink to this definition">¶</a></dt>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_append_gender">
+<code class="descname">test_append_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_append_gender" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function appends the gender id?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_identify_same_profile">
-<code class="descname">test_identify_same_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_identify_same_profile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function only match compossible data?</p>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_identify_same_profile">
+<code class="descname">test_identify_same_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_identify_same_profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function only match compossible data (caution: same id can occur twice, male and female)?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_return_all_different_players">
-<code class="descname">test_return_all_different_players</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_return_all_different_players" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do we get a list of different persons (known data -&gt; 3653)?</p>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_all_different_players_and_matches">
+<code class="descname">test_return_all_different_players_and_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_all_different_players_and_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we get a list of different persons (known data -&gt; 3653 and 39681)?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_return_all_different_profiles">
-<code class="descname">test_return_all_different_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_return_all_different_profiles" title="Permalink to this definition">¶</a></dt>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_all_different_profiles">
+<code class="descname">test_return_all_different_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_all_different_profiles" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do we get a list of persons profiles (known data -&gt; 73422)?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_return_all_grand_slam_profiles">
-<code class="descname">test_return_all_grand_slam_profiles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_return_all_grand_slam_profiles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do we get a list of all grand slam persons profiles (known data -&gt; 3653)?</p>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_all_grand_slam_profiles_and_matches">
+<code class="descname">test_return_all_grand_slam_profiles_and_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_all_grand_slam_profiles_and_matches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we get a list of all grand slam persons profiles and matches (known data -&gt; 3653 and 39681)?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_return_csv_contents">
-<code class="descname">test_return_csv_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_return_csv_contents" title="Permalink to this definition">¶</a></dt>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_csv_contents">
+<code class="descname">test_return_csv_contents</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_csv_contents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do we get the sum of csv contents in comparison to both genders?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_return_matches_csv_paths">
-<code class="descname">test_return_matches_csv_paths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_return_matches_csv_paths" title="Permalink to this definition">¶</a></dt>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_matches_csv_paths">
+<code class="descname">test_return_matches_csv_paths</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_matches_csv_paths" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do we get the sum of strings in comparison to both genders?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_return_matches_csv_paths_for_single_gender">
-<code class="descname">test_return_matches_csv_paths_for_single_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_return_matches_csv_paths_for_single_gender" title="Permalink to this definition">¶</a></dt>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_matches_csv_paths_for_single_gender">
+<code class="descname">test_return_matches_csv_paths_for_single_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_return_matches_csv_paths_for_single_gender" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do both genders return strings (known data -&gt; 50)?</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="tests.TestProfilesCollector.test_write_csv">
-<code class="descname">test_write_csv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.TestProfilesCollector.test_write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do we write a csv file with person profile rows (known data -&gt; 3653)?</p>
+<dt id="test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_write_csvs">
+<code class="descname">test_write_csvs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_profiles_and_matches_collector.TestProfilesAndMatchesCollector.test_write_csvs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we write one csv file with person profile rows and one with match rows (known data -&gt; 3653 and 39681)?</p>
 </dd></dl>
 
 </dd></dl>
@@ -215,8 +209,8 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Documentation for the Code</a><ul>
-<li><a class="reference internal" href="#module-profiles_collector">Player Profiles</a></li>
-<li><a class="reference internal" href="#module-tests">Tests</a></li>
+<li><a class="reference internal" href="#module-profiles_and_matches_collector">Player Profiles</a></li>
+<li><a class="reference internal" href="#module-test_profiles_and_matches_collector">Tests</a></li>
 <li><a class="reference internal" href="#module-csv_handler">CSV Handler</a></li>
 </ul>
 </li>
