@@ -1,19 +1,25 @@
 Documentation for the Code
 **************************
 
-Player Profiles
-===============
+Collect Player Profiles and Matches
+===================================
 
 .. automodule:: profiles_and_matches_collector
 	:members: ProfilesAndMatchesCollector
 
-Tests
-=========
-
 .. automodule:: test_profiles_and_matches_collector
 	:members: TestProfilesAndMatchesCollector
 
-CSV Handler
+Synchronize Player Profiles and Competitions
+============================================
+
+.. automodule:: profiles_and_competitions_synchronizer
+	:members: ProfilesAndCompetitionsSynchronizer
+
+.. automodule:: test_profiles_and_competitions_synchronizer
+	:members: TestProfilesAndCompetitionsSynchronizer
+
+Handle CSVs
 ===========
 
 .. automodule:: csv_handler

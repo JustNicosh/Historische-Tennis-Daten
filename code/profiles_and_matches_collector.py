@@ -60,7 +60,7 @@ class ProfilesAndMatchesCollector():
 		return playerList
 
 	def return_all_different_players_and_matches(self):
-		"""Returns a list with all Grand Slam layers and all Grand Slam matches of our data.
+		"""Returns a list with all Grand Slam players and all Grand Slam matches of our data.
 		"""
 		csvcontents = self.return_csv_contents()
 		playerList = []
