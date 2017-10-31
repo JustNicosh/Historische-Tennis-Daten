@@ -249,6 +249,57 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-team_and_person_id_identifier">
+<span id="identify-team-ids-and-person-ids"></span><h2>Identify team_ids and person_ids<a class="headerlink" href="#module-team_and_person_id_identifier" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="team_and_person_id_identifier.TeamAndPersonIdIdentifier">
+<em class="property">class </em><code class="descclassname">team_and_person_id_identifier.</code><code class="descname">TeamAndPersonIdIdentifier</code><a class="headerlink" href="#team_and_person_id_identifier.TeamAndPersonIdIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies depending team_id and person_id for each profile.</p>
+<dl class="method">
+<dt id="team_and_person_id_identifier.TeamAndPersonIdIdentifier.identify_person_id">
+<code class="descname">identify_person_id</code><span class="sig-paren">(</span><em>profile</em>, <em>hsPersons</em><span class="sig-paren">)</span><a class="headerlink" href="#team_and_person_id_identifier.TeamAndPersonIdIdentifier.identify_person_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a person_id for a given profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="team_and_person_id_identifier.TeamAndPersonIdIdentifier.identify_team_id">
+<code class="descname">identify_team_id</code><span class="sig-paren">(</span><em>profile</em>, <em>hsTeams</em><span class="sig-paren">)</span><a class="headerlink" href="#team_and_person_id_identifier.TeamAndPersonIdIdentifier.identify_team_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies a team_id for a given profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="team_and_person_id_identifier.TeamAndPersonIdIdentifier.return_profiles_teams_and_persons">
+<code class="descname">return_profiles_teams_and_persons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#team_and_person_id_identifier.TeamAndPersonIdIdentifier.return_profiles_teams_and_persons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns source profiles, hs-teams and hs-matches from given csvs.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_team_and_person_id_identifier"></span><dl class="class">
+<dt id="test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier">
+<em class="property">class </em><code class="descclassname">test_team_and_person_id_identifier.</code><code class="descname">TestTeamAndPersonIdIdentifier</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class TestTeamAndPersonIdIdentifier.</p>
+<dl class="method">
+<dt id="test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier.test_identify_person_id">
+<code class="descname">test_identify_person_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier.test_identify_person_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we identify the depending person?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier.test_identify_team_id">
+<code class="descname">test_identify_team_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier.test_identify_team_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we identify the depending team?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier.test_return_profiles_teams_and_persons">
+<code class="descname">test_return_profiles_teams_and_persons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_team_and_person_id_identifier.TestTeamAndPersonIdIdentifier.test_return_profiles_teams_and_persons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do all csvs return content (case known data -&gt; 3653)?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-csv_handler">
 <span id="handle-csvs"></span><h2>Handle CSVs<a class="headerlink" href="#module-csv_handler" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -283,6 +334,7 @@
 <li><a class="reference internal" href="#">Documentation for the Code</a><ul>
 <li><a class="reference internal" href="#module-profiles_and_matches_collector">Collect Player Profiles and Matches</a></li>
 <li><a class="reference internal" href="#module-profiles_and_competitions_synchronizer">Synchronize Player Profiles and Competitions</a></li>
+<li><a class="reference internal" href="#module-team_and_person_id_identifier">Identify team_ids and person_ids</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>
 </li>
