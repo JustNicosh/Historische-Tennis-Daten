@@ -10,47 +10,48 @@ class TeamAndPersonIdIdentifier():
 	def __init__(self):
 		self.sourcePath = '../data/allProfilesWithCompetitions.csv'
 		self.hsTeamsPath = '../data/hs-data/hs-table-team.csv'
-		self.hsPersonsPath = '../data/hs-data/hs-table-person.csv'
 
-	def return_profiles_teams_and_persons(self):
+	def return_sports_specific_teams(self, hsTeams, sportId):
+		"""Returns only columns with the right sport_id and without a double marker.
+		"""
+		sportsSpecificTeams = []
+		for row in hsTeams:
+			if row[10][1] == sportId and '/' not in row[1]:
+				sportsSpecificTeams.append(row)
+		return sportsSpecificTeams
+
+	def return_profiles_and_teams(self):
 		"""Returns source profiles, hs-teams and hs-matches from given csvs.
 		"""
 		profiles = csv_handler.CsvHandler().read_csv(self.sourcePath, 'r', 'latin-1')
-		hsTeams = csv_handler.CsvHandler().read_csv(self.hsTeamsPath, 'r', 'latin-1')
-		hsPersons = csv_handler.CsvHandler().read_csv(self.hsPersonsPath, 'r', 'latin-1')
-		return {'profiles': profiles, 'hsTeams': hsTeams, 'hsPersons': hsPersons}
+		hsAllTeams = csv_handler.CsvHandler().read_csv(self.hsTeamsPath, 'r', 'latin-1')
+		hsTeams = self.return_sports_specific_teams(hsAllTeams, '5')
+		return {'profiles': profiles, 'hsTeams': hsTeams}
 
-	def identify_team_id(self, profile, hsTeams):
-		"""Identifies a team_id for a given profile.
+	def identify_id(self, profile, hsItems, index):
+		"""Identifies an id for a given profile.
 		"""
-		for team in hsTeams:
-			if profile[1] in team[1] and profile[2] in team[1] and not '/' in team[1]:
-				return team[0]
-		return None
-
-	def identify_person_id(self, profile, hsPersons):
-		"""Identifies a person_id for a given profile.
-		"""
-		for person in hsPersons:
-			if profile[1] in person[1] and profile[2] in person[2]:
-				return person[0]
+		for item in hsItems:
+			if profile[1] in item[index] and profile[2] in item[index]:
+				return item[0]
+			elif profile[1].replace('ae', 'ä') in item[index] and profile[2].replace('ae', 'ä') in item[index]:
+				return item[0]
+			elif profile[1].replace('oe', 'ö') in item[index] and profile[2].replace('oe', 'ö') in item[index]:
+				return item[0]
+			elif profile[1].replace('ue', 'ü') in item[index] and profile[2].replace('ue', 'ü') in item[index]:
+				return item[0]
 		return None
 
 	def dev(self):
-		csvOutput = self.return_profiles_teams_and_persons()
+		csvOutput = self.return_profiles_and_teams()
 		profiles = csvOutput['profiles']
 		hsTeams = csvOutput['hsTeams']
-		hsPersons = csvOutput['hsPersons']
-
 		for profile in profiles:
-			teamId = self.identify_team_id(profile, hsTeams)
-			personId = self.identify_person_id(hsPersons)
+			teamId = self.identify_id(profile, hsTeams, 1)
 			profile.append(teamId)
-			profile.append(personId)
-
 		return profiles
 
 
 
 if __name__ == '__main__':
-	TeamAndPersonIdIdentifier()
+	TeamAndPersonIdIdentifier().dev()
