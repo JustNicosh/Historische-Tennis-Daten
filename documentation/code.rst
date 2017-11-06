@@ -19,14 +19,14 @@ Synchronize Player Profiles and Competitions
 .. automodule:: test_profiles_and_competitions_synchronizer
 	:members: TestProfilesAndCompetitionsSynchronizer
 
-Identify team_ids and person_ids
-================================
+Identify team_ids
+=================
 
-.. automodule:: team_and_person_id_identifier
-	:members: TeamAndPersonIdIdentifier
+.. automodule:: team_id_identifier
+	:members: TeamIdIdentifier
 
-.. automodule:: test_team_and_person_id_identifier
-	:members: TestTeamAndPersonIdIdentifier
+.. automodule:: test_team_id_identifier
+	:members: TestTeamIdIdentifier
 
 Handle CSVs
 ===========
