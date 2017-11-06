@@ -28,6 +28,15 @@ Identify team_ids
 .. automodule:: test_team_id_identifier
 	:members: TestTeamIdIdentifier
 
+Collect all different Rounds and Seasons
+========================================
+
+.. automodule:: different_rounds_and_seasons_collector
+	:members: DifferentRoundsAndSeasonsCollector
+
+.. automodule:: test_different_rounds_and_seasons_collector
+	:members: TestDifferentRoundsAndSeasonsCollector
+
 Handle CSVs
 ===========
 

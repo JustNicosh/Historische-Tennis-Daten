@@ -11,10 +11,10 @@ class TestTeamIdIdentifier(unittest.TestCase):
 	"""
 
 	def test_return_profiles_and_teams(self):
-		"""Do all csvs return content (case known data -> 3653 and at least 4700)?
+		"""Do all csvs return content (known data -> 3781 and at least 4700)?
         """
 		outputToCheck = team_id_identifier.TeamIdIdentifier().return_profiles_and_teams()
-		self.assertEqual(len(outputToCheck['profiles']), 3653)
+		self.assertEqual(len(outputToCheck['profiles']), 3781)
 		self.assertGreater(len(outputToCheck['hsTeams']), 4700)
 
 	def test_return_sports_specific_teams(self):
@@ -39,10 +39,10 @@ class TestTeamIdIdentifier(unittest.TestCase):
 		self.assertEqual(team_id_identifier.TeamIdIdentifier().identify_id(teamProfile2, hsTeams, 1, 0), '123')
 
 	def test_return_profiles_with_team_id(self):
-		"""Are all profiles returned and many with a team_id (known data -> 3653 and at least 900)?
+		"""Are all profiles returned and many with a team_id (known data -> 3781 and at least 900)?
 		"""
 		outputToCheck = team_id_identifier.TeamIdIdentifier().return_profiles_with_team_id()
-		self.assertEqual(len(outputToCheck), 3653)
+		self.assertEqual(len(outputToCheck), 3781)
 		teamIds = 0
 		for row in outputToCheck:
 			if row[8] != '0':
@@ -50,12 +50,12 @@ class TestTeamIdIdentifier(unittest.TestCase):
 		self.assertGreater(teamIds, 900)
 
 	def test_write_csv(self):
-		"""Do we write one csv file with team_id profile rows (known data -> 3653)?
+		"""Do we write one csv file with team_id profile rows (known data -> 3781)?
         """
 		path = team_id_identifier.TeamIdIdentifier().write_csv('../data/test_allProfilesWithTeamIds.csv')
 		csvContent = csv_handler.CsvHandler().read_csv(path, 'r', 'latin-1')
 		os.remove('../data/test_allProfilesWithTeamIds.csv')
-		self.assertEqual(len(csvContent), 3653)
+		self.assertEqual(len(csvContent), 3781)
 
 if __name__ == '__main__':
 	os.system('radon cc -a team_id_identifier.py')

@@ -43,14 +43,14 @@ class TestProfilesAndMatchesCollector(unittest.TestCase):
         self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().append_absent_players(row3, 1, playerList, ['TURNIER_BLA'], 7, 10, 17, 20)), 5)
 
     def test_return_all_different_players_and_matches(self):
-        """Do we get a list of different persons (known data -> 3653 and 39681)?
+        """Do we get a list of different persons (known data -> 3781 and 44969)?
         """
         # Unknown data:
         #self.assertGreater(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_different_players_and_matches()['playerList']), 0)
         #self.assertGreater(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_different_players_and_matches()['matchesList']), 0)
         # Known data:
-        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_different_players_and_matches()['playerList']), 3653)
-        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_different_players_and_matches()['matchesList']), 39681)
+        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_different_players_and_matches()['playerList']), 3781)
+        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_different_players_and_matches()['matchesList']), 44969)
 
     def test_append_gender(self):
         """Does the function appends the gender id?
@@ -81,17 +81,17 @@ class TestProfilesAndMatchesCollector(unittest.TestCase):
         self.assertEqual(profiles_and_matches_collector.ProfilesAndMatchesCollector().identify_same_profile(allProfiles, gradSlamPlayer3), None)
 
     def test_return_all_grand_slam_profiles_and_matches(self):
-        """Do we get a list of all grand slam persons profiles and matches (known data -> 3653 and 39681)?
+        """Do we get a list of all grand slam persons profiles and matches (known data -> 3781 and 44969)?
         """
         # Unknown data:
         #self.assertGreater(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_grand_slam_profiles_and_matches()['allGrandSlamProfiles']), 0)
         #self.assertGreater(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_grand_slam_profiles_and_matches()['allGrandSlamMatches']), 0)
         # Known data:
-        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_grand_slam_profiles_and_matches()['allGrandSlamProfiles']), 3653)
-        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_grand_slam_profiles_and_matches()['allGrandSlamMatches']), 39681)
+        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_grand_slam_profiles_and_matches()['allGrandSlamProfiles']), 3781)
+        self.assertEqual(len(profiles_and_matches_collector.ProfilesAndMatchesCollector().return_all_grand_slam_profiles_and_matches()['allGrandSlamMatches']), 44969)
 
     def test_write_csvs(self):
-        """Do we write one csv file with person profile rows and one with match rows (known data -> 3653 and 39681)?
+        """Do we write one csv file with person profile rows and one with match rows (known data -> 3781 and 44969)?
         """
         paths = profiles_and_matches_collector.ProfilesAndMatchesCollector().write_csvs('../data/test_allGrandSlamdifferent.csv', '../data/test_allGrandSlamMatches.csv')
         csvContentProfiles = csv_handler.CsvHandler().read_csv(paths['outputPathProfiles'], 'r', 'latin-1')
@@ -102,8 +102,8 @@ class TestProfilesAndMatchesCollector(unittest.TestCase):
         #self.assertGreater(len(csvContentProfiles), 0)
         #self.assertGreater(len(csvContentMatches), 0)
         # Known data:
-        self.assertEqual(len(csvContentProfiles), 3653)
-        self.assertEqual(len(csvContentMatches), 39681)
+        self.assertEqual(len(csvContentProfiles), 3781)
+        self.assertEqual(len(csvContentMatches), 44969)
 
 if __name__ == '__main__':
     os.system('radon cc -a profiles_and_matches_collector.py')
