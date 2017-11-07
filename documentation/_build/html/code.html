@@ -333,7 +333,25 @@
 <dl class="method">
 <dt id="different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.append_round_season_competition">
 <code class="descname">append_round_season_competition</code><span class="sig-paren">(</span><em>roundSeasonCompetitions</em>, <em>match</em>, <em>yearRow</em>, <em>toureyNameRow</em>, <em>roundMarkerRow</em><span class="sig-paren">)</span><a class="headerlink" href="#different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.append_round_season_competition" title="Permalink to this definition">¶</a></dt>
-<dd><p>Appends all different rounds (depending on seasons and competitions).</p>
+<dd><p>Appends a round (depending on season and competition) if it is not present.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.return_round_seasons_competitions">
+<code class="descname">return_round_seasons_competitions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.return_round_seasons_competitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collect all different rounds (depending on seasons and competitions) from matchesPath.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.synchronize_with_competiton_id">
+<code class="descname">synchronize_with_competiton_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.synchronize_with_competiton_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronizes all rounds (depending on seasons and competitions) with the depending hs-competiton_id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.synchronize_with_season_topic_id">
+<code class="descname">synchronize_with_season_topic_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.synchronize_with_season_topic_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronizes all rounds (depending on seasons and competitions) with the depending hs-season_topic_id.</p>
 </dd></dl>
 
 <dl class="method">
@@ -352,6 +370,24 @@
 <dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_append_round_season_competition">
 <code class="descname">test_append_round_season_competition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_append_round_season_competition" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function append all different rounds (depending on seasons and competitions)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_return_round_seasons_competitions">
+<code class="descname">test_return_round_seasons_competitions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_return_round_seasons_competitions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a list containing all different rounds (depending on seasons and competitions) (known data -&gt; 2312)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_synchronize_with_competiton_id">
+<code class="descname">test_synchronize_with_competiton_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_synchronize_with_competiton_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function synchronize all different rounds (depending on seasons and competitions) with competition_ids (known data -&gt; 2312)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_synchronize_with_season_topic_id">
+<code class="descname">test_synchronize_with_season_topic_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_synchronize_with_season_topic_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function synchronize all different rounds (depending on seasons and competitions) with season_topic_ids (known data -&gt; 2312)?</p>
 </dd></dl>
 
 <dl class="method">

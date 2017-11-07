@@ -22,6 +22,28 @@ class TestDifferentRoundsAndSeasonsCollector(unittest.TestCase):
 		self.assertEqual(len(different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().append_round_season_competition(roundSeasonCompetitions, matches[1], 0, 1, 29)), 1)
 		self.assertEqual(len(different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().append_round_season_competition(roundSeasonCompetitions, matches[2], 0, 1, 29)), 2)
 
+	def test_return_round_seasons_competitions(self):
+		"""Does the function return a list containing all different rounds (depending on seasons and competitions) (known data -> 2312)?
+		"""
+		self.assertEqual(len(different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().return_round_seasons_competitions()), 2634)
+
+	def test_synchronize_with_season_topic_id(self):
+		"""Does the function synchronize all different rounds (depending on seasons and competitions) with season_topic_ids (known data -> 2312)?
+		"""
+		outputToCheck = different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().synchronize_with_season_topic_id()
+		self.assertEqual(len(outputToCheck), 2634)
+		self.assertEqual(len(outputToCheck[0]), 4)
+		self.assertEqual(len(outputToCheck[1000]), 4)
+
+	def test_synchronize_with_competiton_id(self):
+		"""Does the function synchronize all different rounds (depending on seasons and competitions) with competition_ids (known data -> 2312)?
+		"""
+		outputToCheck = different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().synchronize_with_competiton_id()
+		print(outputToCheck)
+		self.assertEqual(len(outputToCheck), 2634)
+		self.assertEqual(len(outputToCheck[0]), 5)
+		self.assertEqual(len(outputToCheck[1000]), 5)
+
 	def test_write_csv(self):
 		"""Do we write one csv file with different rounds (known data -> 2312)?
         """
