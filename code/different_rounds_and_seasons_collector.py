@@ -4,12 +4,14 @@
 import csv_handler
 
 class DifferentRoundsAndSeasonsCollector():
-	"""Collects all different rounds (depending on seasons and competitions).
+	"""Collects all different rounds (depending on seasons and competitions)
+	and synchronizes them with data (hs -> season-topic_ids and competition_ids; research -> tourney dates).
 	"""
 
 	def __init__(self):
 		self.matchesPath = '../data/allGrandSlamMatches.csv'
 		self.hsSeasonTopicIdsPath = '../data/hs-data/hs-tennis-season-topics.csv'
+		self.researchTourneyDatesPath = '../data/research-data/tourney-dates.csv'
 		self.hsCompetitons = [{'name':'Australian Open', 'gender':'-W-', 'hs-competiton_id':'980'}, \
 								{'name':'Australian Open', 'gender':'-M-', 'hs-competiton_id':'858'}, \
 								{'name':'French Open', 'gender':'-W-', 'hs-competiton_id':'1019'}, \
@@ -21,6 +23,7 @@ class DifferentRoundsAndSeasonsCollector():
 		self.yearRow = 0
 		self.toureyNameRow = 1
 		self.roundMarkerRow = 29
+		self.lastYear = 2008
 
 	def append_round_season_competition(self, roundSeasonCompetitions, match, yearRow, toureyNameRow, roundMarkerRow):
 		"""Appends a round (depending on season and competition) if it is not present.
@@ -31,7 +34,7 @@ class DifferentRoundsAndSeasonsCollector():
 		return roundSeasonCompetitions
 
 	def return_round_seasons_competitions(self):
-		"""Collect all different rounds (depending on seasons and competitions) from matchesPath.
+		"""Collects all different rounds (depending on seasons and competitions) from matchesPath.
 		"""
 		roundSeasonCompetitions = []
 		matches = csv_handler.CsvHandler().read_csv(self.matchesPath, 'r', 'latin-1')
@@ -41,7 +44,7 @@ class DifferentRoundsAndSeasonsCollector():
 		return roundSeasonCompetitions
 
 	def synchronize_with_season_topic_id(self):
-		"""Synchronizes all rounds (depending on seasons and competitions) with the depending hs-season_topic_id.
+		"""Synchronizes all rounds (depending on seasons and competitions) with the depending hs-season_topic_id from hs-data.
 		"""
 		hsSeasonTopics = csv_handler.CsvHandler().read_csv(self.hsSeasonTopicIdsPath, 'r', 'latin-1')
 		roundSeasonCompetitions = self.return_round_seasons_competitions()
@@ -56,7 +59,7 @@ class DifferentRoundsAndSeasonsCollector():
 		return roundSeasonCompetitions
 
 	def synchronize_with_competiton_id(self):
-		"""Synchronizes all rounds (depending on seasons and competitions) with the depending hs-competiton_id.
+		"""Synchronizes all rounds (depending on seasons and competitions) with the depending hs-competiton_id from hs-data.
 		"""
 		roundSeasonCompetitions = self.synchronize_with_season_topic_id()
 		for roundSeasonCompetition in roundSeasonCompetitions:
@@ -67,10 +70,41 @@ class DifferentRoundsAndSeasonsCollector():
 					roundSeasonCompetition.append(competiton['hs-competiton_id'])
 		return roundSeasonCompetitions
 
+	def synchronize_with_tourney_dates(self):
+		"""Synchronizes all rounds (depending on seasons and competitions) with the tourney dates from research-data.
+		"""
+		roundSeasonCompetitions = self.synchronize_with_competiton_id()
+		tourneyDates = csv_handler.CsvHandler().read_csv(self.researchTourneyDatesPath, 'r', 'latin-1')
+		for roundSeasonCompetition in roundSeasonCompetitions:
+			for date in tourneyDates:
+				if roundSeasonCompetition[0] == date[0] and roundSeasonCompetition[1].split('-')[0] == date[1]:
+					roundSeasonCompetition.append(date[2])
+		return roundSeasonCompetitions
+
+	def append_year_and_gender(self):
+		"""Appends year and gender to each round (depending on season and competition).
+		"""
+		roundSeasonCompetitions = self.synchronize_with_tourney_dates()
+		for roundSeasonCompetition in roundSeasonCompetitions:
+			if '-W-' not in roundSeasonCompetition[1]:
+				roundSeasonCompetition.append('ATP')
+			elif '-W-' in roundSeasonCompetition[1]:
+				roundSeasonCompetition.append('WTA')
+			roundSeasonCompetition.append(roundSeasonCompetition[1].split('-')[0])
+			del roundSeasonCompetition[1]
+		return roundSeasonCompetitions
+
+	def consider_only_specific_years(self):
+		"""Considers only tourneys which took place in a given period of time.
+		"""
+		roundSeasonCompetitions = self.append_year_and_gender()
+		onlySpecificRoundSeasonCompetitions = [roundSeasonCompetition for roundSeasonCompetition in roundSeasonCompetitions if int(roundSeasonCompetition[-1]) <= self.lastYear]
+		return onlySpecificRoundSeasonCompetitions
+
 	def write_csv(self, outputPath):
 		"""Writes one csv document containing all different rounds (depending on seasons and competitions).
 		"""
-		synchronizedRoundSeasonCompetitions = self.synchronize_with_competiton_id()
+		synchronizedRoundSeasonCompetitions = self.consider_only_specific_years()
 		csv_handler.CsvHandler().create_csv(synchronizedRoundSeasonCompetitions, outputPath)
 		return outputPath
 
