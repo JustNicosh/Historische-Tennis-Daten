@@ -1,2 +1,6 @@
 **/.pyc
 **/__pycache__
+**/documentation
+**/!documentation/code.rst
+**/!documentation/data.rst
+**/!documentation/index.rst
