@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: iso-8859-1 -*-
 
 import different_rounds_and_seasons_collector
@@ -52,17 +52,27 @@ class TestDifferentRoundsAndSeasonsCollector(unittest.TestCase):
 		self.assertEqual(len(outputToCheck[1000]), 6)
 
 	def test_append_year_and_gender(self):
-		"""Does the function append year and gender for each round (depending on season and competition) (known data -> 2634 and 7)?
+		"""Does the function append year and gender for each round (depending on season and competition) (known data -> 2634 and 8)?
 		"""
 		outputToCheck = different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().append_year_and_gender()
 		self.assertEqual(len(outputToCheck), 2634)
-		self.assertEqual(len(outputToCheck[0]), 7)
-		self.assertEqual(len(outputToCheck[1000]), 7)
+		self.assertEqual(len(outputToCheck[0]), 8)
+		self.assertEqual(len(outputToCheck[1000]), 8)
 
 	def test_consider_only_specific_years(self):
 		"""Does the function only return rounds (depending on seasons and competitions) with specific years (known data -> 2193)?
 		"""
 		outputToCheck = different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().consider_only_specific_years()
+		self.assertEqual(len(outputToCheck), 2193)
+
+	def test_return_renamed_rounds(self):
+		"""Does the function only return renamed rounds (depending on seasons and competitions) (known data -> 2193, 9 and >4)?
+		"""
+		outputToCheck = different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector().return_renamed_rounds()
+		self.assertEqual(len(outputToCheck[0]), 9)
+		self.assertEqual(len(outputToCheck[1000]), 9)
+		self.assertGreater(len(outputToCheck[0][8]), 4)
+		self.assertGreater(len(outputToCheck[1000][8]), 4)
 		self.assertEqual(len(outputToCheck), 2193)
 
 	def test_write_csv(self):

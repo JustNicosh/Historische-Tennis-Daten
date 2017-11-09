@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: iso-8859-1 -*-
 
 import csv_handler
@@ -12,18 +12,31 @@ class DifferentRoundsAndSeasonsCollector():
 		self.matchesPath = '../data/allGrandSlamMatches.csv'
 		self.hsSeasonTopicIdsPath = '../data/hs-data/hs-tennis-season-topics.csv'
 		self.researchTourneyDatesPath = '../data/research-data/tourney-dates.csv'
-		self.hsCompetitons = [{'name':'Australian Open', 'gender':'-W-', 'hs-competiton_id':'980'}, \
-								{'name':'Australian Open', 'gender':'-M-', 'hs-competiton_id':'858'}, \
-								{'name':'French Open', 'gender':'-W-', 'hs-competiton_id':'1019'}, \
-								{'name':'Roland Garros', 'gender':'-M-', 'hs-competiton_id':'907'}, \
-								{'name':'US Open', 'gender':'-W-', 'hs-competiton_id':'590'}, \
-								{'name':'US Open', 'gender':'-M-', 'hs-competiton_id':'589'}, \
-								{'name':'Wimbledon', 'gender':'-W-', 'hs-competiton_id':'1027'}, \
-								{'name':'Wimbledon', 'gender':'-M-', 'hs-competiton_id':'919'}]
+		self.sourceGenderFemaleMarker = '-W-'
+		self.sourceGenderMaleMarker = '-M-'
+		self.hsGenderFemaleMarker = 'WTA'
+		self.hsGenderMaleMarker = 'ATP'
+		self.hsCompetitons = [{'name': 'Australian Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'980'}, \
+								{'name': 'Australian Open', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'858'}, \
+								{'name': 'French Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1019'}, \
+								{'name': 'Roland Garros', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'907'}, \
+								{'name': 'US Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'590'}, \
+								{'name': 'US Open', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'589'}, \
+								{'name': 'Wimbledon', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1027'}, \
+								{'name': 'Wimbledon', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'919'}]
 		self.yearRow = 0
 		self.toureyNameRow = 1
 		self.roundMarkerRow = 29
 		self.lastYear = 2008
+		self.roundNames = [{'sourceName': 'R128', 'hsName': '1. Runde'}, \
+								{'sourceName': 'R64', 'hsName': '2. Runde'}, \
+								{'sourceName': 'R32', 'hsName': '3. Runde'}, \
+								{'sourceName': 'R16', 'hsName': 'Achtelfinale'}, \
+								{'sourceName': 'QF', 'hsName': 'Viertelfinale'}, \
+								{'sourceName': 'SF', 'hsName': 'Halbfinale'}, \
+								{'sourceName': 'F', 'hsName': 'Finale'}]
+		self.unknownRoundName = 'unbekannt'
+
 
 	def append_round_season_competition(self, roundSeasonCompetitions, match, yearRow, toureyNameRow, roundMarkerRow):
 		"""Appends a round (depending on season and competition) if it is not present.
@@ -50,9 +63,9 @@ class DifferentRoundsAndSeasonsCollector():
 		roundSeasonCompetitions = self.return_round_seasons_competitions()
 		for roundSeasonCompetition in roundSeasonCompetitions:
 			for hsSeasonTopic in hsSeasonTopics:
-				if '-W-' not in roundSeasonCompetition[1] and 'ATP' in hsSeasonTopic[2] and roundSeasonCompetition[1].split('-')[0] in hsSeasonTopic[2]:
+				if self.sourceGenderFemaleMarker not in roundSeasonCompetition[1] and self.hsGenderMaleMarker in hsSeasonTopic[2] and roundSeasonCompetition[1].split('-')[0] in hsSeasonTopic[2]:
 					roundSeasonCompetition.append(hsSeasonTopic[0].split('"')[1])
-				elif '-W-' in roundSeasonCompetition[1] and 'WTA' in hsSeasonTopic[2] and roundSeasonCompetition[1].split('-')[0] in hsSeasonTopic[2]:
+				elif self.sourceGenderFemaleMarker in roundSeasonCompetition[1] and self.hsGenderFemaleMarker in hsSeasonTopic[2] and roundSeasonCompetition[1].split('-')[0] in hsSeasonTopic[2]:
 					roundSeasonCompetition.append(hsSeasonTopic[0].split('"')[1])
 			if len(roundSeasonCompetition) == 3:
 				roundSeasonCompetition.append('0')
@@ -64,9 +77,9 @@ class DifferentRoundsAndSeasonsCollector():
 		roundSeasonCompetitions = self.synchronize_with_season_topic_id()
 		for roundSeasonCompetition in roundSeasonCompetitions:
 			for competiton in self.hsCompetitons:
-				if '-W-' not in roundSeasonCompetition[1] and roundSeasonCompetition[0] == competiton['name'] and competiton['gender'] == '-M-':
+				if self.sourceGenderFemaleMarker not in roundSeasonCompetition[1] and roundSeasonCompetition[0] == competiton['name'] and competiton['gender'] == self.sourceGenderMaleMarker:
 					roundSeasonCompetition.append(competiton['hs-competiton_id'])
-				elif '-W-' in roundSeasonCompetition[1] and roundSeasonCompetition[0] == competiton['name'] and competiton['gender'] == '-W-':
+				elif self.sourceGenderFemaleMarker in roundSeasonCompetition[1] and roundSeasonCompetition[0] == competiton['name'] and competiton['gender'] == self.sourceGenderFemaleMarker:
 					roundSeasonCompetition.append(competiton['hs-competiton_id'])
 		return roundSeasonCompetitions
 
@@ -86,12 +99,12 @@ class DifferentRoundsAndSeasonsCollector():
 		"""
 		roundSeasonCompetitions = self.synchronize_with_tourney_dates()
 		for roundSeasonCompetition in roundSeasonCompetitions:
-			if '-W-' not in roundSeasonCompetition[1]:
-				roundSeasonCompetition.append('ATP')
-			elif '-W-' in roundSeasonCompetition[1]:
-				roundSeasonCompetition.append('WTA')
+			if self.sourceGenderFemaleMarker not in roundSeasonCompetition[1]:
+				roundSeasonCompetition.append(self.hsGenderMaleMarker)
+			elif self.sourceGenderFemaleMarker in roundSeasonCompetition[1]:
+				roundSeasonCompetition.append(self.hsGenderFemaleMarker)
 			roundSeasonCompetition.append(roundSeasonCompetition[1].split('-')[0])
-			del roundSeasonCompetition[1]
+			#del roundSeasonCompetition[1]
 		return roundSeasonCompetitions
 
 	def consider_only_specific_years(self):
@@ -101,10 +114,22 @@ class DifferentRoundsAndSeasonsCollector():
 		onlySpecificRoundSeasonCompetitions = [roundSeasonCompetition for roundSeasonCompetition in roundSeasonCompetitions if int(roundSeasonCompetition[-1]) <= self.lastYear]
 		return onlySpecificRoundSeasonCompetitions
 
+	def return_renamed_rounds(self):
+		"""Returns all rounds (depending on seasons and competitions) with hs names.
+		"""
+		roundSeasonCompetitions = self.consider_only_specific_years()
+		for roundSeasonCompetition in roundSeasonCompetitions:
+			for roundName in self.roundNames:
+				if roundSeasonCompetition[2] == roundName['sourceName']:
+					roundSeasonCompetition.append(roundName['hsName'])
+			if len(roundSeasonCompetition) == 8:
+				roundSeasonCompetition.append(self.unknownRoundName)
+		return roundSeasonCompetitions
+
 	def write_csv(self, outputPath):
 		"""Writes one csv document containing all different rounds (depending on seasons and competitions).
 		"""
-		synchronizedRoundSeasonCompetitions = self.consider_only_specific_years()
+		synchronizedRoundSeasonCompetitions = self.return_renamed_rounds()
 		csv_handler.CsvHandler().create_csv(synchronizedRoundSeasonCompetitions, outputPath)
 		return outputPath
 

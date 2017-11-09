@@ -37,6 +37,15 @@ Collect all different Rounds and Seasons
 .. automodule:: test_different_rounds_and_seasons_collector
 	:members: TestDifferentRoundsAndSeasonsCollector
 
+Create Rounds And Seasons
+=========================
+
+.. automodule:: rounds_and_seasons_creator
+	:members: RoundsAndSeasonsCreator
+
+.. automodule:: test_rounds_and_seasons_creator
+	:members: TestRoundsAndSeasonsCreator
+
 Handle CSVs
 ===========
 

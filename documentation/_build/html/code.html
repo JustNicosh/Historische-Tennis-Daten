@@ -350,6 +350,12 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 <dl class="method">
+<dt id="different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.return_renamed_rounds">
+<code class="descname">return_renamed_rounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.return_renamed_rounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all rounds (depending on seasons and competitions) with hs names.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.return_round_seasons_competitions">
 <code class="descname">return_round_seasons_competitions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#different_rounds_and_seasons_collector.DifferentRoundsAndSeasonsCollector.return_round_seasons_competitions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Collects all different rounds (depending on seasons and competitions) from matchesPath.</p>
@@ -394,13 +400,19 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <dl class="method">
 <dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_append_year_and_gender">
 <code class="descname">test_append_year_and_gender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_append_year_and_gender" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function append year and gender for each round (depending on season and competition) (known data -&gt; 2634 and 7)?</p>
+<dd><p>Does the function append year and gender for each round (depending on season and competition) (known data -&gt; 2634 and 8)?</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_consider_only_specific_years">
 <code class="descname">test_consider_only_specific_years</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_consider_only_specific_years" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function only return rounds (depending on seasons and competitions) with specific years (known data -&gt; 2193)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_return_renamed_rounds">
+<code class="descname">test_return_renamed_rounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_return_renamed_rounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function only return renamed rounds (depending on seasons and competitions) (known data -&gt; 2193, 9 and &gt;4)?</p>
 </dd></dl>
 
 <dl class="method">
@@ -431,6 +443,33 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <dt id="test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_write_csv">
 <code class="descname">test_write_csv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_different_rounds_and_seasons_collector.TestDifferentRoundsAndSeasonsCollector.test_write_csv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Do we write one csv file with different rounds (known data -&gt; 2193)?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-rounds_and_seasons_creator">
+<span id="create-rounds-and-seasons"></span><h2>Create Rounds And Seasons<a class="headerlink" href="#module-rounds_and_seasons_creator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rounds_and_seasons_creator.RoundsAndSeasonsCreator">
+<em class="property">class </em><code class="descclassname">rounds_and_seasons_creator.</code><code class="descname">RoundsAndSeasonsCreator</code><a class="headerlink" href="#rounds_and_seasons_creator.RoundsAndSeasonsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates Rounds And Seasons.</p>
+<dl class="method">
+<dt id="rounds_and_seasons_creator.RoundsAndSeasonsCreator.returnGsAdminContent">
+<code class="descname">returnGsAdminContent</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_and_seasons_creator.RoundsAndSeasonsCreator.returnGsAdminContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns GS-Admin response data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_rounds_and_seasons_creator"></span><dl class="class">
+<dt id="test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator">
+<em class="property">class </em><code class="descclassname">test_rounds_and_seasons_creator.</code><code class="descname">TestRoundsAndSeasonsCreator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class RoundsAndSeasonsCreator.</p>
+<dl class="method">
+<dt id="test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator.test_returnGsAdminContent">
+<code class="descname">test_returnGsAdminContent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator.test_returnGsAdminContent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return the requestet GS-Admin content?</p>
 </dd></dl>
 
 </dd></dl>
@@ -472,6 +511,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <li><a class="reference internal" href="#module-profiles_and_competitions_synchronizer">Synchronize Player Profiles and Competitions</a></li>
 <li><a class="reference internal" href="#module-team_id_identifier">Identify team_ids</a></li>
 <li><a class="reference internal" href="#module-different_rounds_and_seasons_collector">Collect all different Rounds and Seasons</a></li>
+<li><a class="reference internal" href="#module-rounds_and_seasons_creator">Create Rounds And Seasons</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>
 </li>

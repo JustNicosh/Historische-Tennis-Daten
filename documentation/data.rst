@@ -1,14 +1,20 @@
 Data
 ****
 
-Available data
+Results and Players
+===================
+
+* atp and wta matches and players (1968-2017)
+* source: https://github.com/JeffSackmann
+
+HEIMSPIEL Data
 ==============
 
-* atp and wta matches (1968-2017)
-* atp and wta players
-* atp and wta rankings (80s-10s)
+* team_ids and season-topic_ids
+* source: exported db-tables
 
-Source
-======
+Researched Data
+===============
 
-* Source: https://github.com/JeffSackmann
+* tourney dates
+* source: tourney specific wikipedia sites
