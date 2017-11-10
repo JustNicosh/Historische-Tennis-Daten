@@ -7,13 +7,16 @@ class CsvHandler():
     """Handle csv data.
     """
 
-    def read_csv(self, path, configFormat = 'rb', configEncoding = 'utf-8', configDelimiter = ',', configQuotechar = '|'):
+    def read_csv(self, path, configFormat = 'rb', configEncoding = 'utf-8', configDelimiter = ',', configQuotechar = '|', pythonVersion = '3'):
         """Returns the content of a csv document.
         """
-        outputList = []
-        csvFile = open(path, configFormat, encoding = configEncoding)
+        if pythonVersion == '3':
+            csvFile = open(path, configFormat, encoding = configEncoding)
+        elif pythonVersion == '2':
+            csvFile = open(path, configFormat)
         reader = csv.reader(csvFile, delimiter = configDelimiter, quotechar = configQuotechar)
 
+        outputList = []
         for row in reader:
             if len(row) > 0:
                 outputList.append(row)

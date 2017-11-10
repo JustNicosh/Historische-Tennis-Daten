@@ -448,28 +448,88 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 </div>
-<div class="section" id="module-rounds_and_seasons_creator">
-<span id="create-rounds-and-seasons"></span><h2>Create Rounds And Seasons<a class="headerlink" href="#module-rounds_and_seasons_creator" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-seasons_creator">
+<span id="create-seasons"></span><h2>Create Seasons<a class="headerlink" href="#module-seasons_creator" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="rounds_and_seasons_creator.RoundsAndSeasonsCreator">
-<em class="property">class </em><code class="descclassname">rounds_and_seasons_creator.</code><code class="descname">RoundsAndSeasonsCreator</code><a class="headerlink" href="#rounds_and_seasons_creator.RoundsAndSeasonsCreator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates Rounds And Seasons.</p>
+<dt id="seasons_creator.SeasonsCreator">
+<em class="property">class </em><code class="descclassname">seasons_creator.</code><code class="descname">SeasonsCreator</code><a class="headerlink" href="#seasons_creator.SeasonsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates Seasons.</p>
 <dl class="method">
-<dt id="rounds_and_seasons_creator.RoundsAndSeasonsCreator.returnGsAdminContent">
-<code class="descname">returnGsAdminContent</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_and_seasons_creator.RoundsAndSeasonsCreator.returnGsAdminContent" title="Permalink to this definition">¶</a></dt>
+<dt id="seasons_creator.SeasonsCreator.import_season">
+<code class="descname">import_season</code><span class="sig-paren">(</span><em>row</em>, <em>adminUrl</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.import_season" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports a new season and returns the season_id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="seasons_creator.SeasonsCreator.import_seasons">
+<code class="descname">import_seasons</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.import_seasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports all new seasons and returns a list containing all rounds with season_ids.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="seasons_creator.SeasonsCreator.return_admin_url">
+<code class="descname">return_admin_url</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.return_admin_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns GS-Admin url (ergebnis-dienst or endstand).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="seasons_creator.SeasonsCreator.return_gs_admin_content">
+<code class="descname">return_gs_admin_content</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns GS-Admin response data.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="seasons_creator.SeasonsCreator.return_new_season_id">
+<code class="descname">return_new_season_id</code><span class="sig-paren">(</span><em>br</em>, <em>year</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.return_new_season_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the new season_id by year.</p>
 </dd></dl>
 
-<span class="target" id="module-test_rounds_and_seasons_creator"></span><dl class="class">
-<dt id="test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator">
-<em class="property">class </em><code class="descclassname">test_rounds_and_seasons_creator.</code><code class="descname">TestRoundsAndSeasonsCreator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unittests for the class RoundsAndSeasonsCreator.</p>
 <dl class="method">
-<dt id="test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator.test_returnGsAdminContent">
-<code class="descname">test_returnGsAdminContent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_and_seasons_creator.TestRoundsAndSeasonsCreator.test_returnGsAdminContent" title="Permalink to this definition">¶</a></dt>
+<dt id="seasons_creator.SeasonsCreator.write_csv">
+<code class="descname">write_csv</code><span class="sig-paren">(</span><em>target</em>, <em>outputPath</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes one csv document containing all different rounds (containing season_ids).</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_seasons_creator"></span><dl class="class">
+<dt id="test_seasons_creator.TestSeasonsCreator">
+<em class="property">class </em><code class="descclassname">test_seasons_creator.</code><code class="descname">TestSeasonsCreator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class SeasonsCreator.</p>
+<dl class="method">
+<dt id="test_seasons_creator.TestSeasonsCreator.test_import_season">
+<code class="descname">test_import_season</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_import_season" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function import the season and return the season_id?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_seasons_creator.TestSeasonsCreator.test_import_seasons">
+<code class="descname">test_import_seasons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_import_seasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function import all seasons and return a list containig season_ids  (known data -&gt; 2193 and 10)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_seasons_creator.TestSeasonsCreator.test_return_admin_url">
+<code class="descname">test_return_admin_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_return_admin_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return the right Admin Url?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_seasons_creator.TestSeasonsCreator.test_return_gs_admin_content">
+<code class="descname">test_return_gs_admin_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function return the requestet GS-Admin content?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_seasons_creator.TestSeasonsCreator.test_return_new_season_id">
+<code class="descname">test_return_new_season_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_return_new_season_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function identify the season_id by year?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_seasons_creator.TestSeasonsCreator.test_write_csv">
+<code class="descname">test_write_csv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we write one csv file with different rounds (known data -&gt; 2193)?</p>
 </dd></dl>
 
 </dd></dl>
@@ -489,7 +549,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 
 <dl class="method">
 <dt id="csv_handler.CsvHandler.read_csv">
-<code class="descname">read_csv</code><span class="sig-paren">(</span><em>path</em>, <em>configFormat='rb'</em>, <em>configEncoding='utf-8'</em>, <em>configDelimiter='</em>, <em>'</em>, <em>configQuotechar='|'</em><span class="sig-paren">)</span><a class="headerlink" href="#csv_handler.CsvHandler.read_csv" title="Permalink to this definition">¶</a></dt>
+<code class="descname">read_csv</code><span class="sig-paren">(</span><em>path</em>, <em>configFormat='rb'</em>, <em>configEncoding='utf-8'</em>, <em>configDelimiter='</em>, <em>'</em>, <em>configQuotechar='|'</em>, <em>pythonVersion='3'</em><span class="sig-paren">)</span><a class="headerlink" href="#csv_handler.CsvHandler.read_csv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the content of a csv document.</p>
 </dd></dl>
 
@@ -511,7 +571,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <li><a class="reference internal" href="#module-profiles_and_competitions_synchronizer">Synchronize Player Profiles and Competitions</a></li>
 <li><a class="reference internal" href="#module-team_id_identifier">Identify team_ids</a></li>
 <li><a class="reference internal" href="#module-different_rounds_and_seasons_collector">Collect all different Rounds and Seasons</a></li>
-<li><a class="reference internal" href="#module-rounds_and_seasons_creator">Create Rounds And Seasons</a></li>
+<li><a class="reference internal" href="#module-seasons_creator">Create Seasons</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>
 </li>
