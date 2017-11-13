@@ -535,6 +535,93 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 </div>
+<div class="section" id="module-rounds_creator">
+<span id="create-rounds"></span><h2>Create Rounds<a class="headerlink" href="#module-rounds_creator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="rounds_creator.RoundsCreator">
+<em class="property">class </em><code class="descclassname">rounds_creator.</code><code class="descname">RoundsCreator</code><a class="headerlink" href="#rounds_creator.RoundsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates Rounds.</p>
+<dl class="method">
+<dt id="rounds_creator.RoundsCreator.import_round">
+<code class="descname">import_round</code><span class="sig-paren">(</span><em>row</em>, <em>adminUrl</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.import_round" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports a new round and returns the round_id.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rounds_creator.RoundsCreator.import_rounds">
+<code class="descname">import_rounds</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.import_rounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports all new rounds and returns a list containing all rounds with round_ids.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rounds_creator.RoundsCreator.return_admin_url">
+<code class="descname">return_admin_url</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.return_admin_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns GS-Admin url (ergebnis-dienst or endstand).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rounds_creator.RoundsCreator.return_gs_admin_content">
+<code class="descname">return_gs_admin_content</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns GS-Admin response data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rounds_creator.RoundsCreator.return_new_round_id">
+<code class="descname">return_new_round_id</code><span class="sig-paren">(</span><em>br</em>, <em>roundName</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.return_new_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the new round_id by year.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="rounds_creator.RoundsCreator.write_csv">
+<code class="descname">write_csv</code><span class="sig-paren">(</span><em>target</em>, <em>outputPath</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes one csv document containing all different rounds (containing round_ids).</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_rounds_creator"></span><dl class="class">
+<dt id="test_rounds_creator.TestRoundsCreator">
+<em class="property">class </em><code class="descclassname">test_rounds_creator.</code><code class="descname">TestRoundsCreator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class RoundsCreator.</p>
+<dl class="method">
+<dt id="test_rounds_creator.TestRoundsCreator.test_import_round">
+<code class="descname">test_import_round</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_import_round" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function import the round and return the round_id?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_rounds_creator.TestRoundsCreator.test_import_rounds">
+<code class="descname">test_import_rounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_import_rounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function import all seasons and return a list containig season_ids  (known data -&gt; 2193 and 11)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_rounds_creator.TestRoundsCreator.test_return_admin_url">
+<code class="descname">test_return_admin_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_return_admin_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return the right Admin Url?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_rounds_creator.TestRoundsCreator.test_return_gs_admin_content">
+<code class="descname">test_return_gs_admin_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return the requestet GS-Admin content?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_rounds_creator.TestRoundsCreator.test_return_new_round_id">
+<code class="descname">test_return_new_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_return_new_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function identify the round_id by year?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_rounds_creator.TestRoundsCreator.test_write_csv">
+<code class="descname">test_write_csv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we write one csv file with different rounds (known data -&gt; 2193 and 11)?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-csv_handler">
 <span id="handle-csvs"></span><h2>Handle CSVs<a class="headerlink" href="#module-csv_handler" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -572,6 +659,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <li><a class="reference internal" href="#module-team_id_identifier">Identify team_ids</a></li>
 <li><a class="reference internal" href="#module-different_rounds_and_seasons_collector">Collect all different Rounds and Seasons</a></li>
 <li><a class="reference internal" href="#module-seasons_creator">Create Seasons</a></li>
+<li><a class="reference internal" href="#module-rounds_creator">Create Rounds</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>
 </li>

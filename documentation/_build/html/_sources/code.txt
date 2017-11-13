@@ -46,6 +46,15 @@ Create Seasons
 .. automodule:: test_seasons_creator
 	:members: TestSeasonsCreator
 
+Create Rounds
+=============
+
+.. automodule:: rounds_creator
+	:members: RoundsCreator
+
+.. automodule:: test_rounds_creator
+	:members: TestRoundsCreator
+
 Handle CSVs
 ===========
 
