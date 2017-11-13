@@ -16,6 +16,7 @@ class TestSeasonsCreator(unittest.TestCase):
 		"""Does the function return the requestet GS-Admin content?
         """
 		br = seasons_creator.SeasonsCreator().return_gs_admin_content('http://sport1_admin.app.endstand.de/admin/season.php?sport_id=5&competition_id=858&season_id=&k=2')
+		#br = seasons_creator.SeasonsCreator().return_gs_admin_content('http://master.dynamic.ergebnis-dienst.de/admin/season.php?sport_id=5&competition_id=858&season_id=&k=2')
 		br.form = list(br.forms())[0]
 		formToCheck = br.form.find_control('req[competition_id]')
 		br.close()
@@ -31,6 +32,7 @@ class TestSeasonsCreator(unittest.TestCase):
 		"""Does the function identify the season_id by year?
         """
 		br = seasons_creator.SeasonsCreator().return_gs_admin_content('http://sport1_admin.app.endstand.de/admin/season.php?sport_id=5&competition_id=858&season_id=936')
+		#br = seasons_creator.SeasonsCreator().return_gs_admin_content('http://master.dynamic.ergebnis-dienst.de/admin/season.php?sport_id=5&competition_id=858&season_id=936')
 		self.assertEqual(seasons_creator.SeasonsCreator().return_new_season_id(br, '2009'), '936')
 		br.close()
 
@@ -40,6 +42,7 @@ class TestSeasonsCreator(unittest.TestCase):
 		# Test data:
 		row = ['Australian Open','2010-580','R64','119','858','20.01.2010-27.01.2010','ATP','2010','2. Runde']
 		adminUrl = 'http://sport1_admin.app.endstand.de'
+		#adminUrl = 'http://master.dynamic.ergebnis-dienst.de'
 		self.assertEqual(seasons_creator.SeasonsCreator().import_season(row, adminUrl), '1931')
 
 	def test_import_seasons(self):

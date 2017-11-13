@@ -102,4 +102,4 @@ class SeasonsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	SeasonsCreator().write_csv('', '../data/allRoundsWithSeasonIds.csv')
+	SeasonsCreator().write_csv('ergebnisDienst', '../data/allRoundsWithSeasonIds.csv')
