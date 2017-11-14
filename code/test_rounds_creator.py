@@ -40,9 +40,9 @@ class TestRoundsCreator(unittest.TestCase):
         """
         # CAUTION: NEW DATA WILL BE WRITTEN INTO THE DB (THEREFORE WE NEED AN EXPECTED round_id)!
 		# Test data:
-		row = ['Australian Open','','','','858','','','','1. Runde','25170']
+		row = ['Australian Open','','','','858','','','','unbekannt','25172']
 		adminUrl = 'http://sport1_admin.app.endstand.de'
-		expectedRoundId = '78630'
+		expectedRoundId = '78625'
 		self.assertEqual(rounds_creator.RoundsCreator().import_round(row, adminUrl), expectedRoundId)
 
 	def test_import_rounds(self):
@@ -56,7 +56,7 @@ class TestRoundsCreator(unittest.TestCase):
         # CAUTION: NEW DATA WILL BE WRITTEN INTO THE DB!
 		path = rounds_creator.RoundsCreator().write_csv('', '../data/test_allRoundsWithRoundIds.csv')
 		csvContent = csv_handler.CsvHandler().read_csv(path, 'r', 'latin-1', ',', '|', '2')
-		#os.remove('../data/test_allRoundsWithRoundIds.csv')
+		os.remove('../data/test_allRoundsWithRoundIds.csv')
 		self.assertEqual(len(csvContent), 2193)
 		self.assertEqual(len(csvContent[0]), 11)
 		self.assertEqual(len(csvContent[1000]), 11)
