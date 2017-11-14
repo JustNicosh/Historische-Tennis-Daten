@@ -12,7 +12,7 @@ class ProfilesAndMatchesCollector():
 		self.dataGenderSources = [{'source': '/tennis_atp-master/', 'id': 'atp'}, {'source': '/tennis_wta-master/', 'id': 'wta'}]
 		self.dataMatchesIdentifier = '_matches_'
 		self.dataProfilesIdentifier = 'players'
-		self.dataGradSlamIdentifiers = ['Australian Open', 'Roland Garros', 'Wimbledon', 'US Open', 'French Open']
+		self.dataGradSlamIdentifiers = ['Australian Open', 'Australian Open-2', 'Roland Garros', 'Wimbledon', 'US Open', 'French Open']
 		self.firstYear = 1968
 		self.lastYear = 2017
 		self.dataEnding = '.csv'

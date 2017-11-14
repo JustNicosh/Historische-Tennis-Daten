@@ -11,11 +11,11 @@ class TestProfilesAndCompetitionsSynchronizer(unittest.TestCase):
 	"""
 
 	def test_return_profiles_and_matches(self):
-		"""Do both csvs return content (known data -> 3781 and 44969)?
+		"""Do both csvs return content (known data -> 3782 and 45032)?
         """
        	# Known data:
-		self.assertEqual(len(profiles_and_competitions_synchronizer.ProfilesAndCompetitionsSynchronizer().return_profiles_and_matches()['profiles']), 3781)
-		self.assertEqual(len(profiles_and_competitions_synchronizer.ProfilesAndCompetitionsSynchronizer().return_profiles_and_matches()['matches']), 44969)
+		self.assertEqual(len(profiles_and_competitions_synchronizer.ProfilesAndCompetitionsSynchronizer().return_profiles_and_matches()['profiles']), 3782)
+		self.assertEqual(len(profiles_and_competitions_synchronizer.ProfilesAndCompetitionsSynchronizer().return_profiles_and_matches()['matches']), 45032)
 
 	def test_check_if_competition_is_present(self):
 		"""Does the function append only different competitions?
@@ -43,20 +43,20 @@ class TestProfilesAndCompetitionsSynchronizer(unittest.TestCase):
 		self.assertEqual(len(profiles_and_competitions_synchronizer.ProfilesAndCompetitionsSynchronizer().return_all_competitions_for_one_profile(profile, matches)), 4)
 
 	def test_return_profiles_with_competitons_list(self):
-		"""Do all profiles contain a competition list with at least one item (known data -> 3781)?
+		"""Do all profiles contain a competition list with at least one item (known data -> 3782)?
         """
 		profileWithCompetitionsList = profiles_and_competitions_synchronizer.ProfilesAndCompetitionsSynchronizer().return_profiles_with_competitons_list()
-		self.assertEqual(len(profileWithCompetitionsList), 3781)
+		self.assertEqual(len(profileWithCompetitionsList), 3782)
 		for profile in profileWithCompetitionsList:
 			self.assertGreater(len(profile[7]), 0)
 
 	def test_write_csv(self):
-		"""Do we write one csv file with competition profile rows (known data -> 3781)?
+		"""Do we write one csv file with competition profile rows (known data -> 3782)?
         """
 		path = profiles_and_competitions_synchronizer.ProfilesAndCompetitionsSynchronizer().write_csv('../data/test_allProfilesWithCompetitions.csv')
 		csvContent = csv_handler.CsvHandler().read_csv(path, 'r', 'latin-1')
 		os.remove('../data/test_allProfilesWithCompetitions.csv')
-		self.assertEqual(len(csvContent), 3781)
+		self.assertEqual(len(csvContent), 3782)
 
 if __name__ == '__main__':
 	os.system('radon cc -a profiles_and_competitions_synchronizer.py')
