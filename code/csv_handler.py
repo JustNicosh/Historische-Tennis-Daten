@@ -4,7 +4,7 @@
 import csv
 
 class CsvHandler():
-    """Handle csv data.
+    """Handles csv-module interaction.
     """
 
     def read_csv(self, path, configFormat = 'rb', configEncoding = 'utf-8', configDelimiter = ',', configQuotechar = '|', pythonVersion = '3'):

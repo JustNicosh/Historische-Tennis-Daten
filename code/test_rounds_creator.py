@@ -7,31 +7,16 @@ import rounds_creator
 import os
 import unittest
 import csv_handler
+import admin_handler
 
 class TestRoundsCreator(unittest.TestCase):
 	"""Unittests for the class RoundsCreator.
 	"""
 
-	def test_return_gs_admin_content(self):
-		"""Does the function return the requestet GS-Admin content?
-        """
-		br = rounds_creator.RoundsCreator().return_gs_admin_content('http://sport1_admin.app.endstand.de/admin/round.php?sport_id=5&competition_id=858&season_id=6618&round_id=&k=2')
-		#br = rounds_creator.RoundsCreator().return_gs_admin_content('http://master.dynamic.ergebnis-dienst.de/admin/round.php?sport_id=5&competition_id=858&season_id=6618&round_id=&k=2')
-		br.form = list(br.forms())[0]
-		formToCheck = br.form.find_control('req[round_mode_id]')
-		br.close()
-		self.assertGreater(len(formToCheck.value), 0)
-
-	def test_return_admin_url(self):
-		"""Does the function return the right Admin Url?
-        """
-		self.assertEqual(rounds_creator.RoundsCreator().return_admin_url(''), 'http://sport1_admin.app.endstand.de')
-		self.assertEqual(rounds_creator.RoundsCreator().return_admin_url('ergebnisDienst'), 'http://master.dynamic.ergebnis-dienst.de')
-
 	def test_return_new_round_id(self):
 		"""Does the function identify the round_id by year?
         """
-		br = rounds_creator.RoundsCreator().return_gs_admin_content('http://sport1_admin.app.endstand.de/admin/round.php?sport_id=5&competition_id=858&season_id=7950')
+		br = admin_handler.AdminHandler().return_gs_admin_content('http://sport1_admin.app.endstand.de/admin/round.php?sport_id=5&competition_id=858&season_id=7950')
 		self.assertEqual(rounds_creator.RoundsCreator().return_new_round_id(br, '1. Runde'), '26398')
 		br.close()
 

@@ -64,6 +64,15 @@ Synchronize Player Profiles and season_ids
 .. automodule:: test_profiles_and_season_ids_synchronizer
 	:members: TestProfilesAndSeasonIdsSynchronizer
 
+Handle Admin
+============
+
+.. automodule:: admin_handler
+	:members: AdminHandler
+
+.. automodule:: test_admin_handler
+	:members: TestAdminHandler
+
 Handle CSVs
 ===========
 

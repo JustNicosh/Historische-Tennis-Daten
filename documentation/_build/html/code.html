@@ -467,18 +467,6 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 <dl class="method">
-<dt id="seasons_creator.SeasonsCreator.return_admin_url">
-<code class="descname">return_admin_url</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.return_admin_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns GS-Admin url (ergebnis-dienst or endstand).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="seasons_creator.SeasonsCreator.return_gs_admin_content">
-<code class="descname">return_gs_admin_content</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns GS-Admin response data.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="seasons_creator.SeasonsCreator.return_new_season_id">
 <code class="descname">return_new_season_id</code><span class="sig-paren">(</span><em>br</em>, <em>year</em><span class="sig-paren">)</span><a class="headerlink" href="#seasons_creator.SeasonsCreator.return_new_season_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the new season_id by year.</p>
@@ -506,18 +494,6 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <dt id="test_seasons_creator.TestSeasonsCreator.test_import_seasons">
 <code class="descname">test_import_seasons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_import_seasons" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function import all seasons and return a list containig season_ids  (known data -&gt; 2193 and 10)?</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test_seasons_creator.TestSeasonsCreator.test_return_admin_url">
-<code class="descname">test_return_admin_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_return_admin_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function return the right Admin Url?</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test_seasons_creator.TestSeasonsCreator.test_return_gs_admin_content">
-<code class="descname">test_return_gs_admin_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_seasons_creator.TestSeasonsCreator.test_return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function return the requestet GS-Admin content?</p>
 </dd></dl>
 
 <dl class="method">
@@ -554,18 +530,6 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 <dl class="method">
-<dt id="rounds_creator.RoundsCreator.return_admin_url">
-<code class="descname">return_admin_url</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.return_admin_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns GS-Admin url (ergebnis-dienst or endstand).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="rounds_creator.RoundsCreator.return_gs_admin_content">
-<code class="descname">return_gs_admin_content</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns GS-Admin response data.</p>
-</dd></dl>
-
-<dl class="method">
 <dt id="rounds_creator.RoundsCreator.return_new_round_id">
 <code class="descname">return_new_round_id</code><span class="sig-paren">(</span><em>br</em>, <em>roundName</em><span class="sig-paren">)</span><a class="headerlink" href="#rounds_creator.RoundsCreator.return_new_round_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the new round_id by year.</p>
@@ -593,18 +557,6 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <dt id="test_rounds_creator.TestRoundsCreator.test_import_rounds">
 <code class="descname">test_import_rounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_import_rounds" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function import all seasons and return a list containig season_ids  (known data -&gt; 2193 and 11)?</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test_rounds_creator.TestRoundsCreator.test_return_admin_url">
-<code class="descname">test_return_admin_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_return_admin_url" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function return the right Admin Url?</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test_rounds_creator.TestRoundsCreator.test_return_gs_admin_content">
-<code class="descname">test_return_gs_admin_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_rounds_creator.TestRoundsCreator.test_return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function return the requestet GS-Admin content?</p>
 </dd></dl>
 
 <dl class="method">
@@ -685,12 +637,51 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 </div>
+<div class="section" id="module-admin_handler">
+<span id="handle-admin"></span><h2>Handle Admin<a class="headerlink" href="#module-admin_handler" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="admin_handler.AdminHandler">
+<em class="property">class </em><code class="descclassname">admin_handler.</code><code class="descname">AdminHandler</code><a class="headerlink" href="#admin_handler.AdminHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles GS-Admin interaction.</p>
+<dl class="method">
+<dt id="admin_handler.AdminHandler.return_admin_url">
+<code class="descname">return_admin_url</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#admin_handler.AdminHandler.return_admin_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns GS-Admin url (ergebnis-dienst or endstand).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="admin_handler.AdminHandler.return_gs_admin_content">
+<code class="descname">return_gs_admin_content</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#admin_handler.AdminHandler.return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns GS-Admin response data.</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_admin_handler"></span><dl class="class">
+<dt id="test_admin_handler.TestAdminHandler">
+<em class="property">class </em><code class="descclassname">test_admin_handler.</code><code class="descname">TestAdminHandler</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_admin_handler.TestAdminHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class AdminHandler.</p>
+<dl class="method">
+<dt id="test_admin_handler.TestAdminHandler.test_return_admin_url">
+<code class="descname">test_return_admin_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_admin_handler.TestAdminHandler.test_return_admin_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return the right Admin Url?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_admin_handler.TestAdminHandler.test_return_gs_admin_content">
+<code class="descname">test_return_gs_admin_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_admin_handler.TestAdminHandler.test_return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return the requestet GS-Admin content?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-csv_handler">
 <span id="handle-csvs"></span><h2>Handle CSVs<a class="headerlink" href="#module-csv_handler" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="csv_handler.CsvHandler">
 <em class="property">class </em><code class="descclassname">csv_handler.</code><code class="descname">CsvHandler</code><a class="headerlink" href="#csv_handler.CsvHandler" title="Permalink to this definition">¶</a></dt>
-<dd><p>Handle csv data.</p>
+<dd><p>Handles csv-module interaction.</p>
 <dl class="method">
 <dt id="csv_handler.CsvHandler.create_csv">
 <code class="descname">create_csv</code><span class="sig-paren">(</span><em>content</em>, <em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#csv_handler.CsvHandler.create_csv" title="Permalink to this definition">¶</a></dt>
@@ -724,6 +715,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <li><a class="reference internal" href="#module-seasons_creator">Create Seasons</a></li>
 <li><a class="reference internal" href="#module-rounds_creator">Create Rounds</a></li>
 <li><a class="reference internal" href="#module-profiles_and_season_ids_synchronizer">Synchronize Player Profiles and season_ids</a></li>
+<li><a class="reference internal" href="#module-admin_handler">Handle Admin</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>
 </li>
