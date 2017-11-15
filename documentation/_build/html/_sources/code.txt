@@ -55,6 +55,15 @@ Create Rounds
 .. automodule:: test_rounds_creator
 	:members: TestRoundsCreator
 
+Synchronize Player Profiles and season_ids
+==========================================
+
+.. automodule:: profiles_and_season_ids_synchronizer
+	:members: ProfilesAndSeasonIdsSynchronizer
+
+.. automodule:: test_profiles_and_season_ids_synchronizer
+	:members: TestProfilesAndSeasonIdsSynchronizer
+
 Handle CSVs
 ===========
 
