@@ -637,6 +637,75 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 </div>
+<div class="section" id="module-persons_and_teams_creator">
+<span id="create-persons-and-teams"></span><h2>Create Persons and Teams<a class="headerlink" href="#module-persons_and_teams_creator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="persons_and_teams_creator.PersonsAndTeamsCreator">
+<em class="property">class </em><code class="descclassname">persons_and_teams_creator.</code><code class="descname">PersonsAndTeamsCreator</code><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates Persons and Teams.</p>
+<dl class="method">
+<dt id="persons_and_teams_creator.PersonsAndTeamsCreator.add_seasons">
+<code class="descname">add_seasons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.add_seasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person">
+<code class="descname">create_new_person</code><span class="sig-paren">(</span><em>profile</em>, <em>adminUrl</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new person and returns the person_id and all depending season_ids.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person_and_team">
+<code class="descname">create_new_person_and_team</code><span class="sig-paren">(</span><em>profile</em>, <em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person_and_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persons_and_teams_creator.PersonsAndTeamsCreator.return_all_profiles_with_team_ids">
+<code class="descname">return_all_profiles_with_team_ids</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.return_all_profiles_with_team_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list with all profiles containing team_ids.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persons_and_teams_creator.PersonsAndTeamsCreator.return_profile_data">
+<code class="descname">return_profile_data</code><span class="sig-paren">(</span><em>profile</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.return_profile_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns information of a player profile.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="persons_and_teams_creator.PersonsAndTeamsCreator.write_csv">
+<code class="descname">write_csv</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_persons_and_teams_creator"></span><dl class="class">
+<dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator">
+<em class="property">class </em><code class="descclassname">test_persons_and_teams_creator.</code><code class="descname">TestPersonsAndTeamsCreator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class PersonsAndTeamsCreator.</p>
+<dl class="method">
+<dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_create_new_person">
+<code class="descname">test_create_new_person</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_create_new_person" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function create a new person and return the person_id and all depending season_ids?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_all_profiles_with_team_ids">
+<code class="descname">test_return_all_profiles_with_team_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_all_profiles_with_team_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a list containing all profiles with team_ids?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_profile_data">
+<code class="descname">test_return_profile_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_profile_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return the expected information?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-admin_handler">
 <span id="handle-admin"></span><h2>Handle Admin<a class="headerlink" href="#module-admin_handler" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -715,6 +784,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <li><a class="reference internal" href="#module-seasons_creator">Create Seasons</a></li>
 <li><a class="reference internal" href="#module-rounds_creator">Create Rounds</a></li>
 <li><a class="reference internal" href="#module-profiles_and_season_ids_synchronizer">Synchronize Player Profiles and season_ids</a></li>
+<li><a class="reference internal" href="#module-persons_and_teams_creator">Create Persons and Teams</a></li>
 <li><a class="reference internal" href="#module-admin_handler">Handle Admin</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>

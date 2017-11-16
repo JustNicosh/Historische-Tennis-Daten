@@ -12,6 +12,12 @@ class TestAdminHandler(unittest.TestCase):
 	"""Unittests for the class AdminHandler.
 	"""
 
+	def test_return_admin_url(self):
+		"""Does the function return the right Admin Url?
+		"""
+		self.assertEqual(admin_handler.AdminHandler().return_admin_url(''), 'http://sport1_admin.app.endstand.de')
+		self.assertEqual(admin_handler.AdminHandler().return_admin_url('ergebnisDienst'), 'http://master.dynamic.ergebnis-dienst.de')
+
 	def test_return_gs_admin_content(self):
 		"""Does the function return the requestet GS-Admin content?
 		"""
@@ -25,12 +31,6 @@ class TestAdminHandler(unittest.TestCase):
 		brErgebnis.close()
 		self.assertGreater(len(formToCheckEndstand.value), 0)
 		self.assertGreater(len(formToCheckErgebnis.value), 0)
-
-	def test_return_admin_url(self):
-		"""Does the function return the right Admin Url?
-		"""
-		self.assertEqual(admin_handler.AdminHandler().return_admin_url(''), 'http://sport1_admin.app.endstand.de')
-		self.assertEqual(admin_handler.AdminHandler().return_admin_url('ergebnisDienst'), 'http://master.dynamic.ergebnis-dienst.de')
 			
 if __name__ == '__main__':
 	os.system('radon cc -a admin_handler.py')

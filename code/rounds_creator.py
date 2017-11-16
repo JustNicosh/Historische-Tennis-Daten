@@ -5,8 +5,6 @@
 
 import csv_handler
 import admin_handler
-from mechanize import Browser
-from base64 import b64encode
 
 class RoundsCreator():
 	"""Creates Rounds.

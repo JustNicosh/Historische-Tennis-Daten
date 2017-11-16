@@ -64,6 +64,15 @@ Synchronize Player Profiles and season_ids
 .. automodule:: test_profiles_and_season_ids_synchronizer
 	:members: TestProfilesAndSeasonIdsSynchronizer
 
+Create Persons and Teams
+========================
+
+.. automodule:: persons_and_teams_creator
+	:members: PersonsAndTeamsCreator
+
+.. automodule:: test_persons_and_teams_creator
+	:members: TestPersonsAndTeamsCreator
+
 Handle Admin
 ============
 
