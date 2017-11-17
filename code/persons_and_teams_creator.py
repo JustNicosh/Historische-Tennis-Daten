@@ -51,6 +51,7 @@ class PersonsAndTeamsCreator():
 		elif profileData['gender'] == 'wta':
 			br.form.find_control('req[gender]').items[1].selected = True
 
+		countryId = '0'
 		for item in br.form.find_control('req[rel_country_ids][]').items:
 			if '- ' + profileData['country'] + ' -' in item.get_labels()[0].text:
 				item.selected = True
@@ -62,11 +63,9 @@ class PersonsAndTeamsCreator():
 
 		return {'personId': personId, 'fullName': fullName, 'preName': profileData['preName'], 'lastName': profileData['lastName'], 'countryId': countryId, 'gender': profileData['gender']}
 
-	def create_new_person_and_team(self, profile, target):
-		"""Creates a new team, adds the depending person and returns the new team_id and all season_ids.
+	def create_new_person_and_team(self, profile, adminUrl):
+		"""Creates a new team, adds the depending person and returns the new team_id.
 		"""
-		adminUrl = admin_handler.AdminHandler().return_admin_url(target)
-
 		personData = self.create_new_person(profile, adminUrl)
 		personId = personData['personId']
 		fullName = personData['fullName']
@@ -102,29 +101,43 @@ class PersonsAndTeamsCreator():
 		br.close()
 		return teamId
 
-	def add_seasons(self, profile):
-		"""dev
+	def add_seasons(self, profile, adminUrl):
+		"""Adds all relevant seasons to one player profile.
 		"""
-		return None
+		importUrl = adminUrl + self.blankTeamUrlAppendix + profile[7]
+		br = admin_handler.AdminHandler().return_gs_admin_content(importUrl)
+		br.form = list(br.forms())[0]
+		seasonIds = profile[8].split('_')
+		for seasonId in seasonIds:
+			for item in br.form.find_control("req[rel_season_ids][]").items:
+				if seasonId in item.get_labels()[0].text:
+					item.selected = True
+		br.submit()
+		br.close()
+		return profile
 
 	def return_all_profiles_with_team_ids(self, target):
-		"""Returns a list with all profiles containing team_ids.
+		"""Returns a list with all modified profiles containing team_ids.
 		"""
+		adminUrl = admin_handler.AdminHandler().return_admin_url(target)
 		profiles = csv_handler.CsvHandler().read_csv(self.profilesPath, 'r', 'latin-1', ',', '|', '2')
-		for profile in profiles:
-			if profile[7] == '0':
-				teamId = self.create_new_person_and_team(profile, target)
-				profile[7] = teamId
-			self.add_seasons(profile)
-			break
-		return profiles
+		modifiedProfiles = []
 
-	def write_csv(self, target):
-		"""dev
+		for i in range(0,1):
+			if profiles[i][7] == '0':
+				teamId = self.create_new_person_and_team(profiles[i], adminUrl)
+				profiles[i][7] = teamId
+			modifiedProfile = self.add_seasons(profiles[i], adminUrl)
+			del modifiedProfile[-1]
+			modifiedProfiles.append(modifiedProfile)
+		return modifiedProfiles
+
+	def write_csv(self, target, outputPath):
+		"""Writes one csv document containing all different profiles (with team_ids).
 		"""
 		profiles = self.return_all_profiles_with_team_ids(target)
-		return None
-
+		csv_handler.CsvHandler().create_csv(profiles, outputPath)
+		return outputPath
 
 if __name__ == '__main__':
-	PersonsAndTeamsCreator().write_csv('', '')
+	PersonsAndTeamsCreator().write_csv('', '../data/everyProfileWithTeamId.csv')

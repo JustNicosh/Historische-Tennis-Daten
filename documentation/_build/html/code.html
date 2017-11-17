@@ -645,26 +645,26 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <dd><p>Creates Persons and Teams.</p>
 <dl class="method">
 <dt id="persons_and_teams_creator.PersonsAndTeamsCreator.add_seasons">
-<code class="descname">add_seasons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.add_seasons" title="Permalink to this definition">¶</a></dt>
-<dd><p>dev</p>
+<code class="descname">add_seasons</code><span class="sig-paren">(</span><em>profile</em>, <em>adminUrl</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.add_seasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds all relevant seasons to one player profile.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person">
 <code class="descname">create_new_person</code><span class="sig-paren">(</span><em>profile</em>, <em>adminUrl</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new person and returns the person_id and all depending season_ids.</p>
+<dd><p>Creates a new person and returns the person_id and profile information.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person_and_team">
-<code class="descname">create_new_person_and_team</code><span class="sig-paren">(</span><em>profile</em>, <em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person_and_team" title="Permalink to this definition">¶</a></dt>
-<dd><p>dev</p>
+<code class="descname">create_new_person_and_team</code><span class="sig-paren">(</span><em>profile</em>, <em>adminUrl</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.create_new_person_and_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new team, adds the depending person and returns the new team_id.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="persons_and_teams_creator.PersonsAndTeamsCreator.return_all_profiles_with_team_ids">
 <code class="descname">return_all_profiles_with_team_ids</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.return_all_profiles_with_team_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a list with all profiles containing team_ids.</p>
+<dd><p>Returns a list with all modified profiles containing team_ids.</p>
 </dd></dl>
 
 <dl class="method">
@@ -675,8 +675,8 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 
 <dl class="method">
 <dt id="persons_and_teams_creator.PersonsAndTeamsCreator.write_csv">
-<code class="descname">write_csv</code><span class="sig-paren">(</span><em>target</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.write_csv" title="Permalink to this definition">¶</a></dt>
-<dd><p>dev</p>
+<code class="descname">write_csv</code><span class="sig-paren">(</span><em>target</em>, <em>outputPath</em><span class="sig-paren">)</span><a class="headerlink" href="#persons_and_teams_creator.PersonsAndTeamsCreator.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes one csv document containing all different profiles (with team_ids).</p>
 </dd></dl>
 
 </dd></dl>
@@ -686,21 +686,39 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <em class="property">class </em><code class="descclassname">test_persons_and_teams_creator.</code><code class="descname">TestPersonsAndTeamsCreator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unittests for the class PersonsAndTeamsCreator.</p>
 <dl class="method">
+<dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_add_seasons">
+<code class="descname">test_add_seasons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_add_seasons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function add all relevant seasons to one player profile?</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_create_new_person">
 <code class="descname">test_create_new_person</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_create_new_person" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function create a new person and return the person_id and all depending season_ids?</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_create_new_person_and_team">
+<code class="descname">test_create_new_person_and_team</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_create_new_person_and_team" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function create a new team, add the depending person and return the new team_id?</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_all_profiles_with_team_ids">
 <code class="descname">test_return_all_profiles_with_team_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_all_profiles_with_team_ids" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function return a list containing all profiles with team_ids?</p>
+<dd><p>Does the function return a list containing all modified profiles with team_ids?</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_profile_data">
 <code class="descname">test_return_profile_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_return_profile_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function return the expected information?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_write_csv">
+<code class="descname">test_write_csv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_persons_and_teams_creator.TestPersonsAndTeamsCreator.test_write_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do we write one csv file with all different modified profiles containing team_ids?</p>
 </dd></dl>
 
 </dd></dl>
