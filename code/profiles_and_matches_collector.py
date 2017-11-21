@@ -3,16 +3,16 @@
 
 import csv_handler
 
-class ProfilesAndMatchesCollector():
-	"""Collects all different Grad Slam player profiles and matches.
+class ProfilesAndMatchesCollector(list):
+	"""Collects all different Grand Slam player profiles and matches.
 	"""
 
-	def __init__(self):
+	def __init__(self, list):
+		self.dataGradSlamIdentifiers = list
 		self.dataMainSource = '../data'
 		self.dataGenderSources = [{'source': '/tennis_atp-master/', 'id': 'atp'}, {'source': '/tennis_wta-master/', 'id': 'wta'}]
 		self.dataMatchesIdentifier = '_matches_'
 		self.dataProfilesIdentifier = 'players'
-		self.dataGradSlamIdentifiers = ['Australian Open', 'Australian Open-2', 'Roland Garros', 'Wimbledon', 'US Open', 'French Open']
 		self.firstYear = 1968
 		self.lastYear = 2017
 		self.dataEnding = '.csv'
@@ -122,4 +122,5 @@ class ProfilesAndMatchesCollector():
 		return {'outputPathProfiles': outputPathProfiles, 'outputPathMatches': outputPathMatches}
 
 if __name__ == '__main__':
-	ProfilesAndMatchesCollector().write_csvs('../data/allGrandSlamProfiles.csv', '../data/allGrandSlamMatches.csv')
+	grandSlamIdentifiers = ['Australian Open', 'Australian Open-2', 'Roland Garros', 'Wimbledon', 'US Open', 'French Open']
+	ProfilesAndMatchesCollector(grandSlamIdentifiers).write_csvs('../data/allGrandSlamProfiles.csv', '../data/allGrandSlamMatches.csv')
