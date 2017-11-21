@@ -45,7 +45,7 @@ class TestPersonsAndTeamsCreator(unittest.TestCase):
 	def test_add_seasons(self):
 		"""Does the function add all relevant seasons to one player profile?
 		"""
-		profile = ['110066','Neuer','Super Typ','R','19990115','AUT','wta','137235','19946_8109_1954']
+		profile = ['110066','Neuer','Super Typ','R','19990115','AUT','wta','3967','19946_8109_1954']
 		adminUrl = admin_handler.AdminHandler().return_admin_url('')
 		outputToCheck = persons_and_teams_creator.PersonsAndTeamsCreator().add_seasons(profile, adminUrl)
 		self.assertEqual(outputToCheck, profile)

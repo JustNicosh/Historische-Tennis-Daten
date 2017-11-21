@@ -112,7 +112,11 @@ class PersonsAndTeamsCreator():
 			for item in br.form.find_control("req[rel_season_ids][]").items:
 				if seasonId in item.get_labels()[0].text:
 					item.selected = True
-		br.submit()
+		# There might occur encoding problemes:
+		try:
+			br.submit()
+		except:
+			print(importUrl)
 		br.close()
 		return profile
 
@@ -123,7 +127,7 @@ class PersonsAndTeamsCreator():
 		profiles = csv_handler.CsvHandler().read_csv(self.profilesPath, 'r', 'latin-1', ',', '|', '2')
 		modifiedProfiles = []
 
-		for i in range(1484,1485):#(0,10)(10,20)
+		for i in range(1700,1827):#(0,10)(10,20); 1827 -> last atp-profile with 2008_tourney
 			if profiles[i][7] == '0':
 				teamId = self.create_new_person_and_team(profiles[i], adminUrl)
 				profiles[i][7] = teamId
