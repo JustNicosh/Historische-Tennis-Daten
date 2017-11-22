@@ -18,7 +18,7 @@ class ProfilesAndSeasonIdsSynchronizer():
 		seasons = csv_handler.CsvHandler().read_csv(self.seasonsPath, 'r', 'latin-1')
 		return {'profiles': profiles, 'seasons': seasons}
 
-	def return_season_ids(self, profileSeasons, seasons):
+	def return_season_ids(self, profileSeasons, seasons, gender):
 		"""Returns a string containing different season_ids.
 		"""
 		seasonIdsString = ''
@@ -26,7 +26,7 @@ class ProfilesAndSeasonIdsSynchronizer():
 			year = profileSeason.split('_')[0]
 			tourney = profileSeason.split('_')[1]
 			for season in seasons:
-				if season[0] == tourney and season[7] == year:
+				if season[0] == tourney and season[7] == year and season[6] == gender.upper():
 					seasonIdsString += season[9] + '_'
 					break
 		seasonIdsString = seasonIdsString[:-1]
@@ -40,7 +40,8 @@ class ProfilesAndSeasonIdsSynchronizer():
 		seasons = data['seasons']
 		for profile in profiles:
 			profileSeasons = profile[7].split('++')
-			seasonIds = self.return_season_ids(profileSeasons, seasons)
+			gender = profile[6]
+			seasonIds = self.return_season_ids(profileSeasons, seasons, gender)
 			del profile[7]
 			profile.append(seasonIds)
 		return profiles

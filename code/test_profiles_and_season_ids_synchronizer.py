@@ -21,10 +21,14 @@ class TestProfilesAndSeasonIdsSynchronizer(unittest.TestCase):
 		"""Does the function return a string containing different season_ids?
 		"""
 		# Test data:
-		profileSeasons = ['1968_US Open', '1968_Wimbledon', '1968_Roland Garros']
+		profileSeasons = ['1968_US Open', '1968_Wimbledon']
+		genderMale = 'atp'
+		genderFemale = 'wta'
 		seasons =  csv_handler.CsvHandler().read_csv('../data/allRoundsWithRoundIds.csv', 'r', 'latin-1')
-		outputToCheck = profiles_and_season_ids_synchronizer.ProfilesAndSeasonIdsSynchronizer().return_season_ids(profileSeasons, seasons)
-		self.assertEqual(len(outputToCheck), 17)
+		outputToCheckMale = profiles_and_season_ids_synchronizer.ProfilesAndSeasonIdsSynchronizer().return_season_ids(profileSeasons, seasons, genderMale)
+		outputToCheckFemale = profiles_and_season_ids_synchronizer.ProfilesAndSeasonIdsSynchronizer().return_season_ids(profileSeasons, seasons, genderFemale)
+		self.assertEqual(outputToCheckMale, '25330_25412')
+		self.assertEqual(outputToCheckFemale, '25371_25453')
 
 	def test_return_profiles_with_season_ids(self):
 		"""Does the function return a list containing all profiles with season_ids (known data -> 3782 and 9)?
