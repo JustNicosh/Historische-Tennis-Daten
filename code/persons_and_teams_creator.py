@@ -127,7 +127,7 @@ class PersonsAndTeamsCreator():
 		profiles = csv_handler.CsvHandler().read_csv(self.profilesPath, 'r', 'latin-1', ',', '|', '2')
 		modifiedProfiles = []
 
-		for i in range(2054,2100):#(0,10)(10,20); 1827 -> last atp-profile with 2008_tourney
+		for i in range(2500,2550):#(0,10)(10,20)
 			if profiles[i][7] == '0':
 				teamId = self.create_new_person_and_team(profiles[i], adminUrl)
 				profiles[i][7] = teamId
