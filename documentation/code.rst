@@ -82,6 +82,15 @@ Handle Admin
 .. automodule:: test_admin_handler
 	:members: TestAdminHandler
 
+Synchronize Matchresults, round_ids and team_ids
+================================================
+
+.. automodule:: matches_rounds_and_profiles_synchronizer
+	:members: MatchesRoundsAndProfilesSynchronizer
+
+.. automodule:: test_matches_rounds_and_profiles_synchronizer
+	:members: TestMatchesRoundsAndProfilesSynchronizer
+
 Handle CSVs
 ===========
 

@@ -43,8 +43,8 @@
 <span id="collect-player-profiles-and-matches"></span><h2>Collect Player Profiles and Matches<a class="headerlink" href="#module-profiles_and_matches_collector" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector">
-<em class="property">class </em><code class="descclassname">profiles_and_matches_collector.</code><code class="descname">ProfilesAndMatchesCollector</code><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector" title="Permalink to this definition">¶</a></dt>
-<dd><p>Collects all different Grad Slam player profiles and matches.</p>
+<em class="property">class </em><code class="descclassname">profiles_and_matches_collector.</code><code class="descname">ProfilesAndMatchesCollector</code><span class="sig-paren">(</span><em>list</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects all different Grand Slam player profiles and matches.</p>
 <dl class="method">
 <dt id="profiles_and_matches_collector.ProfilesAndMatchesCollector.append_absent_players">
 <code class="descname">append_absent_players</code><span class="sig-paren">(</span><em>row</em>, <em>tourneyColumn</em>, <em>playerList</em>, <em>dataGradSlamIdentifiers</em>, <em>winnerIdColumn</em>, <em>winnerNameColumn</em>, <em>loserIdColumn</em>, <em>loserNameColumn</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_matches_collector.ProfilesAndMatchesCollector.append_absent_players" title="Permalink to this definition">¶</a></dt>
@@ -594,7 +594,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 
 <dl class="method">
 <dt id="profiles_and_season_ids_synchronizer.ProfilesAndSeasonIdsSynchronizer.return_season_ids">
-<code class="descname">return_season_ids</code><span class="sig-paren">(</span><em>profileSeasons</em>, <em>seasons</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_season_ids_synchronizer.ProfilesAndSeasonIdsSynchronizer.return_season_ids" title="Permalink to this definition">¶</a></dt>
+<code class="descname">return_season_ids</code><span class="sig-paren">(</span><em>profileSeasons</em>, <em>seasons</em>, <em>gender</em><span class="sig-paren">)</span><a class="headerlink" href="#profiles_and_season_ids_synchronizer.ProfilesAndSeasonIdsSynchronizer.return_season_ids" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a string containing different season_ids.</p>
 </dd></dl>
 
@@ -763,6 +763,75 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 </div>
+<div class="section" id="module-matches_rounds_and_profiles_synchronizer">
+<span id="synchronize-matchresults-round-ids-and-team-ids"></span><h2>Synchronize Matchresults, round_ids and team_ids<a class="headerlink" href="#module-matches_rounds_and_profiles_synchronizer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer">
+<em class="property">class </em><code class="descclassname">matches_rounds_and_profiles_synchronizer.</code><code class="descname">MatchesRoundsAndProfilesSynchronizer</code><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronizes all different matchresults with round_ids and team_ids.</p>
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_csv_data">
+<code class="descname">return_csv_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all matches, profiles and rounds from given csvs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult">
+<code class="descname">return_matchresult</code><span class="sig-paren">(</span><em>sourceMatchResults</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult_with_team_ids_and_round_id">
+<code class="descname">return_matchresult_with_team_ids_and_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult_with_team_ids_and_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_round_id">
+<code class="descname">return_round_id</code><span class="sig-paren">(</span><em>allRounds</em>, <em>sourceYear</em>, <em>sourceTourneyName</em>, <em>sourceRoundId</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a round_id (identified by the sourceYear, the sourceTourneyName and a sourceRoundId).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_team_id">
+<code class="descname">return_team_id</code><span class="sig-paren">(</span><em>allProfiles</em>, <em>sourceProfileId</em>, <em>soureProfileName</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_team_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a team_id (identified by a sourceProfileId and the soureProfileName).</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_matches_rounds_and_profiles_synchronizer"></span><dl class="class">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer">
+<em class="property">class </em><code class="descclassname">test_matches_rounds_and_profiles_synchronizer.</code><code class="descname">TestMatchesRoundsAndProfilesSynchronizer</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class MatchesRoundsAndProfilesSynchronizer.</p>
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_csv_data">
+<code class="descname">test_return_csv_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do all three csvs return content (known data -&gt; 45032, 3344 and 2199)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresult_with_team_ids_and_round_id">
+<code class="descname">test_return_matchresult_with_team_ids_and_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresult_with_team_ids_and_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_round_id">
+<code class="descname">test_return_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a round_id (identified by the sourceYear, the sourceTourneyName and a sourceRoundId)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_team_id">
+<code class="descname">test_return_team_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_team_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a team_id (identified by a sourceProfileId and the soureProfileName)?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-csv_handler">
 <span id="handle-csvs"></span><h2>Handle CSVs<a class="headerlink" href="#module-csv_handler" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -804,6 +873,7 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <li><a class="reference internal" href="#module-profiles_and_season_ids_synchronizer">Synchronize Player Profiles and season_ids</a></li>
 <li><a class="reference internal" href="#module-persons_and_teams_creator">Create Persons and Teams</a></li>
 <li><a class="reference internal" href="#module-admin_handler">Handle Admin</a></li>
+<li><a class="reference internal" href="#module-matches_rounds_and_profiles_synchronizer">Synchronize Matchresults, round_ids and team_ids</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>
 </li>
