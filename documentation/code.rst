@@ -73,15 +73,6 @@ Create Persons and Teams
 .. automodule:: test_persons_and_teams_creator
 	:members: TestPersonsAndTeamsCreator
 
-Handle Admin
-============
-
-.. automodule:: admin_handler
-	:members: AdminHandler
-
-.. automodule:: test_admin_handler
-	:members: TestAdminHandler
-
 Synchronize Matchresults, round_ids and team_ids
 ================================================
 
@@ -90,6 +81,15 @@ Synchronize Matchresults, round_ids and team_ids
 
 .. automodule:: test_matches_rounds_and_profiles_synchronizer
 	:members: TestMatchesRoundsAndProfilesSynchronizer
+	
+Handle Admin
+============
+
+.. automodule:: admin_handler
+	:members: AdminHandler
+
+.. automodule:: test_admin_handler
+	:members: TestAdminHandler
 
 Handle CSVs
 ===========

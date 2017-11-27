@@ -724,6 +724,105 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 </dd></dl>
 
 </div>
+<div class="section" id="module-matches_rounds_and_profiles_synchronizer">
+<span id="synchronize-matchresults-round-ids-and-team-ids"></span><h2>Synchronize Matchresults, round_ids and team_ids<a class="headerlink" href="#module-matches_rounds_and_profiles_synchronizer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer">
+<em class="property">class </em><code class="descclassname">matches_rounds_and_profiles_synchronizer.</code><code class="descname">MatchesRoundsAndProfilesSynchronizer</code><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronizes all different matchresults with round_ids and team_ids.</p>
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_csv_data">
+<code class="descname">return_csv_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all matches, profiles and rounds from given csvs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_match_results_with_round_ids">
+<code class="descname">return_match_results_with_round_ids</code><span class="sig-paren">(</span><em>sets</em>, <em>matchCount</em>, <em>roundId</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_match_results_with_round_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list containing match_results (potentialMatch_id, round_id, team_id, result, at, place).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_match_results_without_round_ids">
+<code class="descname">return_match_results_without_round_ids</code><span class="sig-paren">(</span><em>sets</em>, <em>teamIdWinner</em>, <em>teamIdLoser</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_match_results_without_round_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary containing match_results (at, team_id, place, result) without round_ids.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresultSets">
+<code class="descname">return_matchresultSets</code><span class="sig-paren">(</span><em>sourceMatchResult</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresultSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of sets (identified by the sourceMatchResult).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult_with_team_ids_and_round_id">
+<code class="descname">return_matchresult_with_team_ids_and_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult_with_team_ids_and_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_round_id">
+<code class="descname">return_round_id</code><span class="sig-paren">(</span><em>allRounds</em>, <em>sourceYear</em>, <em>sourceTourneyName</em>, <em>sourceRoundId</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a round_id (identified by the sourceYear, the sourceTourneyName and a sourceRoundId).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_team_id">
+<code class="descname">return_team_id</code><span class="sig-paren">(</span><em>allProfiles</em>, <em>sourceProfileId</em>, <em>soureProfileName</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_team_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a team_id (identified by a sourceProfileId and the soureProfileName).</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-test_matches_rounds_and_profiles_synchronizer"></span><dl class="class">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer">
+<em class="property">class </em><code class="descclassname">test_matches_rounds_and_profiles_synchronizer.</code><code class="descname">TestMatchesRoundsAndProfilesSynchronizer</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unittests for the class MatchesRoundsAndProfilesSynchronizer.</p>
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_csv_data">
+<code class="descname">test_return_csv_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do all three csvs return content (known data -&gt; 45032, 3344 and 2199)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_match_results_with_round_ids">
+<code class="descname">test_return_match_results_with_round_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_match_results_with_round_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a list containing match_results (round_id, team_id, result, at, place)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_match_results_without_round_ids">
+<code class="descname">test_return_match_results_without_round_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_match_results_without_round_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a dictionary containing match_results (at, team_id, place, result) without round_ids?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresultSets">
+<code class="descname">test_return_matchresultSets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresultSets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a list of sets (identified by the sourceMatchResult)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresult_with_team_ids_and_round_id">
+<code class="descname">test_return_matchresult_with_team_ids_and_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresult_with_team_ids_and_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>dev</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_round_id">
+<code class="descname">test_return_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_round_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a round_id (identified by the sourceYear, the sourceTourneyName and a sourceRoundId)?</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_team_id">
+<code class="descname">test_return_team_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_team_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does the function return a team_id (identified by a sourceProfileId and the soureProfileName)?</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-admin_handler">
 <span id="handle-admin"></span><h2>Handle Admin<a class="headerlink" href="#module-admin_handler" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -758,75 +857,6 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <dt id="test_admin_handler.TestAdminHandler.test_return_gs_admin_content">
 <code class="descname">test_return_gs_admin_content</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_admin_handler.TestAdminHandler.test_return_gs_admin_content" title="Permalink to this definition">¶</a></dt>
 <dd><p>Does the function return the requestet GS-Admin content?</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-matches_rounds_and_profiles_synchronizer">
-<span id="synchronize-matchresults-round-ids-and-team-ids"></span><h2>Synchronize Matchresults, round_ids and team_ids<a class="headerlink" href="#module-matches_rounds_and_profiles_synchronizer" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer">
-<em class="property">class </em><code class="descclassname">matches_rounds_and_profiles_synchronizer.</code><code class="descname">MatchesRoundsAndProfilesSynchronizer</code><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Synchronizes all different matchresults with round_ids and team_ids.</p>
-<dl class="method">
-<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_csv_data">
-<code class="descname">return_csv_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_csv_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns all matches, profiles and rounds from given csvs.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult">
-<code class="descname">return_matchresult</code><span class="sig-paren">(</span><em>sourceMatchResults</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult" title="Permalink to this definition">¶</a></dt>
-<dd><p>dev</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult_with_team_ids_and_round_id">
-<code class="descname">return_matchresult_with_team_ids_and_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_matchresult_with_team_ids_and_round_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>dev</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_round_id">
-<code class="descname">return_round_id</code><span class="sig-paren">(</span><em>allRounds</em>, <em>sourceYear</em>, <em>sourceTourneyName</em>, <em>sourceRoundId</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_round_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a round_id (identified by the sourceYear, the sourceTourneyName and a sourceRoundId).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_team_id">
-<code class="descname">return_team_id</code><span class="sig-paren">(</span><em>allProfiles</em>, <em>sourceProfileId</em>, <em>soureProfileName</em><span class="sig-paren">)</span><a class="headerlink" href="#matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer.return_team_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a team_id (identified by a sourceProfileId and the soureProfileName).</p>
-</dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-test_matches_rounds_and_profiles_synchronizer"></span><dl class="class">
-<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer">
-<em class="property">class </em><code class="descclassname">test_matches_rounds_and_profiles_synchronizer.</code><code class="descname">TestMatchesRoundsAndProfilesSynchronizer</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unittests for the class MatchesRoundsAndProfilesSynchronizer.</p>
-<dl class="method">
-<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_csv_data">
-<code class="descname">test_return_csv_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_csv_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Do all three csvs return content (known data -&gt; 45032, 3344 and 2199)?</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresult_with_team_ids_and_round_id">
-<code class="descname">test_return_matchresult_with_team_ids_and_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_matchresult_with_team_ids_and_round_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>dev</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_round_id">
-<code class="descname">test_return_round_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_round_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function return a round_id (identified by the sourceYear, the sourceTourneyName and a sourceRoundId)?</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_team_id">
-<code class="descname">test_return_team_id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_matches_rounds_and_profiles_synchronizer.TestMatchesRoundsAndProfilesSynchronizer.test_return_team_id" title="Permalink to this definition">¶</a></dt>
-<dd><p>Does the function return a team_id (identified by a sourceProfileId and the soureProfileName)?</p>
 </dd></dl>
 
 </dd></dl>
@@ -872,8 +902,8 @@ and synchronizes them with data (hs -&gt; season-topic_ids and competition_ids; 
 <li><a class="reference internal" href="#module-rounds_creator">Create Rounds</a></li>
 <li><a class="reference internal" href="#module-profiles_and_season_ids_synchronizer">Synchronize Player Profiles and season_ids</a></li>
 <li><a class="reference internal" href="#module-persons_and_teams_creator">Create Persons and Teams</a></li>
-<li><a class="reference internal" href="#module-admin_handler">Handle Admin</a></li>
 <li><a class="reference internal" href="#module-matches_rounds_and_profiles_synchronizer">Synchronize Matchresults, round_ids and team_ids</a></li>
+<li><a class="reference internal" href="#module-admin_handler">Handle Admin</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>
 </li>
