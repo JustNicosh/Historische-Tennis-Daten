@@ -29,10 +29,14 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 		outputToCheck_2 = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_matchresultSets(matchResult_2)
 		outputToCheck_3 = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_matchresultSets(matchResult_3)
 		outputToCheck_4 = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_matchresultSets(matchResult_4)
-		self.assertEqual(outputToCheck_1, ['2-6', '7-6', '7-6'])
-		self.assertEqual(outputToCheck_2, ['6-1', '3-0', '6-0'])
-		self.assertEqual(outputToCheck_3, ['5-7', '6-3', '4-6', '6-3', '13-11'])
-		self.assertEqual(outputToCheck_4, ['6-0'])
+		self.assertEqual(outputToCheck_1['sets'], ['2-6', '7-6', '7-6'])
+		self.assertEqual(outputToCheck_1['incident'], '0')
+		self.assertEqual(outputToCheck_2['sets'], ['6-1', '3-0'])
+		self.assertEqual(outputToCheck_2['incident'], '12')
+		self.assertEqual(outputToCheck_3['sets'], ['5-7', '6-3', '4-6', '6-3', '13-11'])
+		self.assertEqual(outputToCheck_3['incident'], '0')
+		self.assertEqual(outputToCheck_4['sets'], [])
+		self.assertEqual(outputToCheck_4['incident'], '13')
 
 	def test_return_team_id(self):
 		"""Does the function return a team_id (identified by a sourceProfileId and the soureProfileName)?
@@ -52,11 +56,11 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 	def test_return_match_results_without_round_ids(self):
 		"""Does the function return a dictionary containing match_results (at, team_id, place, result) without round_ids?
 		"""
-		sets = ['5-7', '6-3', '13-11']
 		teamIdWinner = '123'
 		teamIdLoser = '987'
-		outputToCheck = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_match_results_without_round_ids(sets, teamIdWinner, teamIdLoser)
-		expectedOutput = [{'teamId': '123', 'result': '5', 'place': 'none_home', 'at': '1'},
+		sets_1 = ['5-7', '6-3', '13-11']
+		outputToCheck_1 = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_match_results_without_round_ids(sets_1, teamIdWinner, teamIdLoser)
+		expectedOutput_1 = [{'teamId': '123', 'result': '5', 'place': 'none_home', 'at': '1'},
 							{'teamId': '987', 'result': '7', 'place': 'none_away', 'at': '1'},
 							{'teamId': '123', 'result': '6', 'place': 'none_home', 'at': '2'},
 							{'teamId': '987', 'result': '3', 'place': 'none_away', 'at': '2'},
@@ -64,6 +68,25 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 							{'teamId': '987', 'result': '11', 'place': 'none_away', 'at': '3'},
 							{'teamId': '123', 'result': '2', 'place': 'none_home', 'at': '0'},
 							{'teamId': '987', 'result': '1', 'place': 'none_away', 'at': '0'}]
+		self.assertEqual(outputToCheck_1, expectedOutput_1)
+		sets_2 = ['5-7', '1-1']
+		outputToCheck_2 = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_match_results_without_round_ids(sets_2, teamIdWinner, teamIdLoser)
+		expectedOutput_2 = [{'teamId': '123', 'result': '5', 'place': 'none_home', 'at': '1'},
+							{'teamId': '987', 'result': '7', 'place': 'none_away', 'at': '1'},
+							{'teamId': '123', 'result': '1', 'place': 'none_home', 'at': '2'},
+							{'teamId': '987', 'result': '1', 'place': 'none_away', 'at': '2'},
+							{'teamId': '123', 'result': '0', 'place': 'none_home', 'at': '0'},
+							{'teamId': '987', 'result': '1', 'place': 'none_away', 'at': '0'}]
+		self.assertEqual(outputToCheck_2, expectedOutput_2)
+
+	def test_return_walkover_matchresults(self):
+		"""Does the function return a dictionary containing walkover match_results (at, team_id, place, result) without round_ids?
+		"""
+		teamIdWinner = '123'
+		teamIdLoser = '987'
+		outputToCheck = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_walkover_matchresults(teamIdWinner, teamIdLoser)
+		expectedOutput = [{'at': '0', 'teamId': '123', 'place': 'none_home', 'result': '0'},
+						{'at': '0', 'teamId': '987', 'place': 'none_away', 'result': '0'}]
 		self.assertEqual(outputToCheck, expectedOutput)
 
 	def test_return_round_id(self):
@@ -79,7 +102,7 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 		self.assertEqual(outputToCheck, '78629')
 
 	def test_return_match_results_with_round_ids(self):
-		"""Does the function return a list containing match_results (round_id, team_id, result, at, place)?
+		"""Does the function return a list containing match_results (potentialMatch_id, round_id, team_id, result, at, place)?
 		"""
 		sets = [{'teamId': '123', 'result': '5', 'place': 'none_home', 'at': '1'},
 				{'teamId': '987', 'result': '7', 'place': 'none_away', 'at': '1'},
@@ -102,15 +125,28 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 		self.assertEqual(outputToCheck['matchResultsWithRoundIds'], expectedOutput)
 
 	def test_return_matchresult_with_team_ids_and_round_id(self):
-		"""dev
+		"""Does the function return one list containing match_results (potentialMatch_id, round_id, team_id, result, at, place)
+		and another containing match infos  (potentialMatch_id, round_id, winner_team_id, match_incident_id)
+		(known data -> >100000 with 6 columns, 36396 with 4 columns)?
 		"""
 		outputToCheck = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_matchresult_with_team_ids_and_round_id()
 		self.assertGreater(len(outputToCheck['csvMatchResultRows']), 100000)
 		self.assertEqual(len(outputToCheck['csvMatchResultRows'][0]), 6)
 		self.assertEqual(len(outputToCheck['csvMatchResultRows'][-1]), 6)
-		self.assertEqual(len(outputToCheck['csvMatchInfosRows']), 45032)
-		self.assertEqual(len(outputToCheck['csvMatchInfosRows'][0]), 2)
-		self.assertEqual(len(outputToCheck['csvMatchInfosRows'][-1]), 2)
+		self.assertEqual(len(outputToCheck['csvMatchInfosRows']), 36396)
+		self.assertEqual(len(outputToCheck['csvMatchInfosRows'][0]), 4)
+		self.assertEqual(len(outputToCheck['csvMatchInfosRows'][-1]), 4)
+
+	def test_write_csvs(self):
+		"""Does the function write one csv document containing match_results and another containing match infos (known data -> >100000 and 36396)?
+		"""
+		paths = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().write_csvs('../data/test_tennisGrandSlamMatchResults.csv', '../data/test_tennisGrandSlamMatchInfos.csv')
+		csvMatchResults = csv_handler.CsvHandler().read_csv(paths['outputPathMatchResults'], 'r', 'latin-1')
+		csvMatchInfos = csv_handler.CsvHandler().read_csv(paths['outputPathMatchInfos'], 'r', 'latin-1')
+		os.remove('../data/test_tennisGrandSlamMatchResults.csv')
+		os.remove('../data/test_tennisGrandSlamMatchInfos.csv')
+		self.assertGreater(len(csvMatchResults), 100000)
+		self.assertEqual(len(csvMatchInfos), 36396)
 
 if __name__ == '__main__':
 	os.system('radon cc -a matches_rounds_and_profiles_synchronizer.py')

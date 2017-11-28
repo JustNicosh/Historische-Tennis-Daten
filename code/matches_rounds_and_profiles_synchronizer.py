@@ -24,17 +24,22 @@ class MatchesRoundsAndProfilesSynchronizer():
 	def return_matchresultSets(self, sourceMatchResult):
 		"""Returns a list of sets (identified by the sourceMatchResult).
 		"""
-		setList = sourceMatchResult.split(' ')
 		modifiedSetList = []
-		for item in setList:
-			if '(' in item:
-				modifiedSetList.append(item.split('(')[0])
-			elif not re.search('[a-zA-Z]', item) and item != '':
-				modifiedSetList.append(item)
-			# if a player retired, the depending last set should always be '6-0' (the winner is listed first)
-			else:
-				modifiedSetList.append('6-0')
-		return modifiedSetList
+		incident = '0'
+
+		if 'W/O' in sourceMatchResult or 'NA' in sourceMatchResult or '&nbsp;' in sourceMatchResult or sourceMatchResult == '':
+			incident = '13'
+		else:
+			setList = sourceMatchResult.split(' ')
+			for item in setList:
+				if '(' in item:
+					modifiedSetList.append(item.split('(')[0])
+				elif not re.search('[a-zA-Z]', item):
+					modifiedSetList.append(item)
+				# if a player retired (RET, ABD or DEF)
+				else:
+					incident = '12'
+		return {'sets': modifiedSetList, 'incident': incident}
 
 	def return_team_id(self, allProfiles, sourceProfileId, soureProfileName):
 		"""Returns a team_id (identified by a sourceProfileId and the soureProfileName).
@@ -56,13 +61,20 @@ class MatchesRoundsAndProfilesSynchronizer():
 			loserPoints = sets[i].split('-')[1]
 			matchResults.append({'at': at, 'teamId': teamIdWinner, 'place': 'none_home', 'result': winnerPoints})
 			matchResults.append({'at': at, 'teamId': teamIdLoser, 'place': 'none_away', 'result': loserPoints})
-			# we need a counter for at = 0
-			if int(winnerPoints) > int(loserPoints):
+			# we need a counter for at = 0 (only complete sets, no 'RET' sets)
+			if int(winnerPoints) > int(loserPoints) and int(winnerPoints) > 5:
 				overallWinner += 1
-			else:
+			elif int(loserPoints) > 5:
 				overallLoser += 1
 		matchResults.append({'at': '0', 'teamId': teamIdWinner, 'place': 'none_home', 'result': str(overallWinner)})
 		matchResults.append({'at': '0', 'teamId': teamIdLoser, 'place': 'none_away', 'result': str(overallLoser)})
+		return matchResults
+
+	def return_walkover_matchresults(self, teamIdWinner, teamIdLoser):
+		"""Returns a dictionary containing walkover match_results (at, team_id, place, result) without round_ids.
+		"""
+		matchResults = [{'at': '0', 'teamId': teamIdWinner, 'place': 'none_home', 'result': '0'},
+						{'at': '0', 'teamId': teamIdLoser, 'place': 'none_away', 'result': '0'}]
 		return matchResults
 
 	def return_round_id(self, allRounds, sourceYear, sourceTourneyName, sourceRoundId):
@@ -82,26 +94,46 @@ class MatchesRoundsAndProfilesSynchronizer():
 		return {'matchResultsWithRoundIds': matchResultsWithRoundIds}
 
 	def return_matchresult_with_team_ids_and_round_id(self):
-		"""dev
+		"""Returns one list containing match_results (potentialMatch_id, round_id, team_id, result, at, place)
+		and another containing match infos  (potentialMatch_id, round_id, winner_team_id, match_incident_id).
 		"""
 		csvData = self.return_csv_data()
 		csvMatchResultRows = []
 		csvMatchInfosRows = []
 		matchCount = 1
 		for match in csvData['matches']:
-			sets = self.return_matchresultSets(match[27])
+			setInfos = self.return_matchresultSets(match[27])
+			sets = setInfos['sets']
+			incident = setInfos['incident']
 			teamIdWinner = self.return_team_id(csvData['profiles'], match[7], match[10])
 			teamIdLoser = self.return_team_id(csvData['profiles'], match[17], match[20])
-			matchresultsWithoutRoundIds = self.return_match_results_without_round_ids(sets, teamIdWinner, teamIdLoser)
-			roundId = self.return_round_id(csvData['rounds'], match[0], match[1], match[29])
-			matchResult = self.return_match_results_with_round_ids(matchresultsWithoutRoundIds, matchCount, roundId)
 
+			# incident 13 (W/O etc.) -> no items in setlist (no match took place)
+			if incident != '13':
+				matchresultsWithoutRoundIds = self.return_match_results_without_round_ids(sets, teamIdWinner, teamIdLoser)
+			else:
+				matchresultsWithoutRoundIds = self.return_walkover_matchresults(teamIdWinner, teamIdLoser)
+
+			# no round_id -> tourney after 2008 (we don't want these matches)
+			roundId = self.return_round_id(csvData['rounds'], match[0], match[1], match[29])
+			if roundId == None:
+				continue
+
+			matchResult = self.return_match_results_with_round_ids(matchresultsWithoutRoundIds, matchCount, roundId)
 			for item in matchResult['matchResultsWithRoundIds']:
 				csvMatchResultRows.append(item)
 
-			csvMatchInfosRows.append([str(matchCount), teamIdWinner])
+			csvMatchInfosRows.append([str(matchCount), roundId, teamIdWinner, incident])
 			matchCount += 1
 		return {'csvMatchResultRows': csvMatchResultRows, 'csvMatchInfosRows': csvMatchInfosRows}
 
+	def write_csvs(self, outputPathMatchResults, outputPathMatchInfos):
+		"""Writes one csv document containing match_results and another containing match infos.
+		"""
+		matchesData = self.return_matchresult_with_team_ids_and_round_id()
+		csv_handler.CsvHandler().create_csv(matchesData['csvMatchResultRows'], outputPathMatchResults)
+		csv_handler.CsvHandler().create_csv(matchesData['csvMatchInfosRows'], outputPathMatchInfos)
+		return {'outputPathMatchResults': outputPathMatchResults, 'outputPathMatchInfos': outputPathMatchInfos}
+
 if __name__ == '__main__':
-	MatchesRoundsAndProfilesSynchronizer().return_matchresult_with_team_ids_and_round_id()
+	MatchesRoundsAndProfilesSynchronizer().write_csvs('../data/tennisGrandSlamMatchResults.csv', '../data/tennisGrandSlamMatchInfos.csv')
