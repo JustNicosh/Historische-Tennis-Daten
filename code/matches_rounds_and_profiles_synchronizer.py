@@ -59,22 +59,22 @@ class MatchesRoundsAndProfilesSynchronizer():
 			at = str(i + 1)
 			winnerPoints = sets[i].split('-')[0]
 			loserPoints = sets[i].split('-')[1]
-			matchResults.append({'at': at, 'teamId': teamIdWinner, 'place': 'none_home', 'result': winnerPoints})
-			matchResults.append({'at': at, 'teamId': teamIdLoser, 'place': 'none_away', 'result': loserPoints})
+			matchResults.append({'at': at, 'teamId': teamIdWinner, 'place': 'home', 'result': winnerPoints})
+			matchResults.append({'at': at, 'teamId': teamIdLoser, 'place': 'away', 'result': loserPoints})
 			# we need a counter for at = 0 (only complete sets, no 'RET' sets)
 			if int(winnerPoints) > int(loserPoints) and int(winnerPoints) > 5:
 				overallWinner += 1
 			elif int(loserPoints) > 5:
 				overallLoser += 1
-		matchResults.append({'at': '0', 'teamId': teamIdWinner, 'place': 'none_home', 'result': str(overallWinner)})
-		matchResults.append({'at': '0', 'teamId': teamIdLoser, 'place': 'none_away', 'result': str(overallLoser)})
+		matchResults.append({'at': '0', 'teamId': teamIdWinner, 'place': 'home', 'result': str(overallWinner)})
+		matchResults.append({'at': '0', 'teamId': teamIdLoser, 'place': 'away', 'result': str(overallLoser)})
 		return matchResults
 
 	def return_walkover_matchresults(self, teamIdWinner, teamIdLoser):
 		"""Returns a dictionary containing walkover match_results (at, team_id, place, result) without round_ids.
 		"""
-		matchResults = [{'at': '0', 'teamId': teamIdWinner, 'place': 'none_home', 'result': '0'},
-						{'at': '0', 'teamId': teamIdLoser, 'place': 'none_away', 'result': '0'}]
+		matchResults = [{'at': '0', 'teamId': teamIdWinner, 'place': 'home', 'result': '0'},
+						{'at': '0', 'teamId': teamIdLoser, 'place': 'away', 'result': '0'}]
 		return matchResults
 
 	def return_round_id(self, allRounds, sourceYear, sourceTourneyName, sourceRoundId):

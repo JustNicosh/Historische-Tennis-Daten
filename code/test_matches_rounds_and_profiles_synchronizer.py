@@ -60,23 +60,23 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 		teamIdLoser = '987'
 		sets_1 = ['5-7', '6-3', '13-11']
 		outputToCheck_1 = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_match_results_without_round_ids(sets_1, teamIdWinner, teamIdLoser)
-		expectedOutput_1 = [{'teamId': '123', 'result': '5', 'place': 'none_home', 'at': '1'},
-							{'teamId': '987', 'result': '7', 'place': 'none_away', 'at': '1'},
-							{'teamId': '123', 'result': '6', 'place': 'none_home', 'at': '2'},
-							{'teamId': '987', 'result': '3', 'place': 'none_away', 'at': '2'},
-							{'teamId': '123', 'result': '13', 'place': 'none_home', 'at': '3'},
-							{'teamId': '987', 'result': '11', 'place': 'none_away', 'at': '3'},
-							{'teamId': '123', 'result': '2', 'place': 'none_home', 'at': '0'},
-							{'teamId': '987', 'result': '1', 'place': 'none_away', 'at': '0'}]
+		expectedOutput_1 = [{'teamId': '123', 'result': '5', 'place': 'home', 'at': '1'},
+							{'teamId': '987', 'result': '7', 'place': 'away', 'at': '1'},
+							{'teamId': '123', 'result': '6', 'place': 'home', 'at': '2'},
+							{'teamId': '987', 'result': '3', 'place': 'away', 'at': '2'},
+							{'teamId': '123', 'result': '13', 'place': 'home', 'at': '3'},
+							{'teamId': '987', 'result': '11', 'place': 'away', 'at': '3'},
+							{'teamId': '123', 'result': '2', 'place': 'home', 'at': '0'},
+							{'teamId': '987', 'result': '1', 'place': 'away', 'at': '0'}]
 		self.assertEqual(outputToCheck_1, expectedOutput_1)
 		sets_2 = ['5-7', '1-1']
 		outputToCheck_2 = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_match_results_without_round_ids(sets_2, teamIdWinner, teamIdLoser)
-		expectedOutput_2 = [{'teamId': '123', 'result': '5', 'place': 'none_home', 'at': '1'},
-							{'teamId': '987', 'result': '7', 'place': 'none_away', 'at': '1'},
-							{'teamId': '123', 'result': '1', 'place': 'none_home', 'at': '2'},
-							{'teamId': '987', 'result': '1', 'place': 'none_away', 'at': '2'},
-							{'teamId': '123', 'result': '0', 'place': 'none_home', 'at': '0'},
-							{'teamId': '987', 'result': '1', 'place': 'none_away', 'at': '0'}]
+		expectedOutput_2 = [{'teamId': '123', 'result': '5', 'place': 'home', 'at': '1'},
+							{'teamId': '987', 'result': '7', 'place': 'away', 'at': '1'},
+							{'teamId': '123', 'result': '1', 'place': 'home', 'at': '2'},
+							{'teamId': '987', 'result': '1', 'place': 'away', 'at': '2'},
+							{'teamId': '123', 'result': '0', 'place': 'home', 'at': '0'},
+							{'teamId': '987', 'result': '1', 'place': 'away', 'at': '0'}]
 		self.assertEqual(outputToCheck_2, expectedOutput_2)
 
 	def test_return_walkover_matchresults(self):
@@ -85,8 +85,8 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 		teamIdWinner = '123'
 		teamIdLoser = '987'
 		outputToCheck = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_walkover_matchresults(teamIdWinner, teamIdLoser)
-		expectedOutput = [{'at': '0', 'teamId': '123', 'place': 'none_home', 'result': '0'},
-						{'at': '0', 'teamId': '987', 'place': 'none_away', 'result': '0'}]
+		expectedOutput = [{'at': '0', 'teamId': '123', 'place': 'home', 'result': '0'},
+						{'at': '0', 'teamId': '987', 'place': 'away', 'result': '0'}]
 		self.assertEqual(outputToCheck, expectedOutput)
 
 	def test_return_round_id(self):
@@ -104,24 +104,24 @@ class TestMatchesRoundsAndProfilesSynchronizer(unittest.TestCase):
 	def test_return_match_results_with_round_ids(self):
 		"""Does the function return a list containing match_results (potentialMatch_id, round_id, team_id, result, at, place)?
 		"""
-		sets = [{'teamId': '123', 'result': '5', 'place': 'none_home', 'at': '1'},
-				{'teamId': '987', 'result': '7', 'place': 'none_away', 'at': '1'},
-				{'teamId': '123', 'result': '6', 'place': 'none_home', 'at': '2'},
-				{'teamId': '987', 'result': '3', 'place': 'none_away', 'at': '2'},
-				{'teamId': '123', 'result': '13', 'place': 'none_home', 'at': '3'},
-				{'teamId': '987', 'result': '11', 'place': 'none_away', 'at': '3'},
-				{'teamId': '123', 'result': '2', 'place': 'none_home', 'at': '0'},
-				{'teamId': '987', 'result': '1', 'place': 'none_away', 'at': '0'}]
+		sets = [{'teamId': '123', 'result': '5', 'place': 'home', 'at': '1'},
+				{'teamId': '987', 'result': '7', 'place': 'away', 'at': '1'},
+				{'teamId': '123', 'result': '6', 'place': 'home', 'at': '2'},
+				{'teamId': '987', 'result': '3', 'place': 'away', 'at': '2'},
+				{'teamId': '123', 'result': '13', 'place': 'home', 'at': '3'},
+				{'teamId': '987', 'result': '11', 'place': 'away', 'at': '3'},
+				{'teamId': '123', 'result': '2', 'place': 'home', 'at': '0'},
+				{'teamId': '987', 'result': '1', 'place': 'away', 'at': '0'}]
 		round_id = '7777'
 		outputToCheck = matches_rounds_and_profiles_synchronizer.MatchesRoundsAndProfilesSynchronizer().return_match_results_with_round_ids(sets, 99, round_id)
-		expectedOutput = [['99', '7777', '123', '5', '1', 'none_home'],
-							['99', '7777', '987', '7', '1', 'none_away'],
-							['99', '7777', '123', '6', '2', 'none_home'],
-							['99', '7777', '987', '3', '2', 'none_away'],
-							['99', '7777', '123', '13', '3', 'none_home'],
-							['99', '7777', '987', '11', '3', 'none_away'],
-							['99', '7777', '123', '2', '0', 'none_home'],
-							['99', '7777', '987', '1', '0', 'none_away']]
+		expectedOutput = [['99', '7777', '123', '5', '1', 'home'],
+							['99', '7777', '987', '7', '1', 'away'],
+							['99', '7777', '123', '6', '2', 'home'],
+							['99', '7777', '987', '3', '2', 'away'],
+							['99', '7777', '123', '13', '3', 'home'],
+							['99', '7777', '987', '11', '3', 'away'],
+							['99', '7777', '123', '2', '0', 'home'],
+							['99', '7777', '987', '1', '0', 'away']]
 		self.assertEqual(outputToCheck['matchResultsWithRoundIds'], expectedOutput)
 
 	def test_return_matchresult_with_team_ids_and_round_id(self):
