@@ -124,4 +124,4 @@ class ProfilesAndMatchesCollector(list):
 if __name__ == '__main__':
 	grandSlamIdentifiers = ['Australian Open', 'Australian Open-2', 'Roland Garros', 'Wimbledon', 'US Open', 'French Open']
 	tourFinalsIdentifiers = ['Masters Cup', 'Tour Finals', 'Masters', 'WTA Tour Championships', 'Virginia Slims Championships']
-	ProfilesAndMatchesCollector(grandSlamIdentifiers).write_csvs('../data/allProfiles.csv', '../data/allMatches.csv')
+	ProfilesAndMatchesCollector(tourFinalsIdentifiers).write_csvs('../data/allProfiles.csv', '../data/allMatches.csv')

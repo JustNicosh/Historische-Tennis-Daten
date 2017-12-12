@@ -23,7 +23,12 @@ class DifferentRoundsAndSeasonsCollector():
 								{'name': 'US Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'590'}, \
 								{'name': 'US Open', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'589'}, \
 								{'name': 'Wimbledon', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1027'}, \
-								{'name': 'Wimbledon', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'919'}]
+								{'name': 'Wimbledon', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'919'}, \
+								{'name': 'Masters Cup', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':''}, \
+								{'name': 'Tour Finals', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':''}, \
+								{'name': 'Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':''}, \
+								{'name': 'WTA Tour Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':''}, \
+								{'name': 'Virginia Slims Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':''}]
 		self.yearRow = 0
 		self.toureyNameRow = 1
 		self.roundMarkerRow = 29
