@@ -8,8 +8,8 @@ class ProfilesAndCompetitionsSynchronizer():
 	"""
 
 	def __init__(self):
-		self.profilesPath = '../data/allProfiles.csv'
-		self.matchesPath = '../data/allMatches.csv'
+		self.profilesPath = '../data/competitions/wta-premier-germany-data/allProfiles.csv'
+		self.matchesPath = '../data/competitions/wta-premier-germany-data/allMatches.csv'
 
 	def return_profiles_and_matches(self):
 		"""Returns all matches and all profiles from given csvs.

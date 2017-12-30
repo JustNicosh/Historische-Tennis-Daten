@@ -14,7 +14,7 @@ class ProfilesAndMatchesCollector(list):
 		self.dataMatchesIdentifier = '_matches_'
 		self.dataProfilesIdentifier = 'players'
 		self.firstYear = 1968
-		self.lastYear = 2017
+		self.lastYear = 2010
 		self.dataEnding = '.csv'
 		self.tourneyColumn = 1
 		self.winnerIdColumn = 7
@@ -124,4 +124,9 @@ class ProfilesAndMatchesCollector(list):
 if __name__ == '__main__':
 	grandSlamIdentifiers = ['Australian Open', 'Australian Open-2', 'Roland Garros', 'Wimbledon', 'US Open', 'French Open']
 	tourFinalsIdentifiers = ['Masters Cup', 'Tour Finals', 'Masters', 'WTA Tour Championships', 'Virginia Slims Championships']
-	ProfilesAndMatchesCollector(tourFinalsIdentifiers).write_csvs('../data/allProfiles.csv', '../data/allMatches.csv')
+	atpWorldTour1000Identifiers = ['Rome', 'Rome Masters', 'Monte Carlo', 'Monte Carlo Masters', 'Madrid Masters', 'Paris Indoor', 'Paris Masters', 'Indian Wells', 'Indian Wells Masters', 'Key Biscayne', 'Miami Masters', 'Montreal / Toronto', 'Canada Masters', 'Cincinnati', 'Cincinnati Masters']
+	atpWorldTour500GermanyIdentifiers = ['Hamburg', 'Hamburg Masters', 'Halle']
+	wtaPremierMandatoryAndPremier5Identifiers = ['Indian Wells', 'Miami Masters', 'Key Biscayne', 'Madrid', 'Beijing', 'Shanghai', 'Dubai Open', 'Rome', 'Perugia', 'Canadian Open', 'Cincinnati']
+	wtaPremierGermanyIdentifiers = ['Stuttgart', 'Filderstadt']
+
+	ProfilesAndMatchesCollector(wtaPremierGermanyIdentifiers).write_csvs('../data/allProfiles.csv', '../data/allMatches.csv')

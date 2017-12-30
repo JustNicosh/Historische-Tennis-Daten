@@ -8,7 +8,7 @@ class TeamIdIdentifier():
 	"""
 
 	def __init__(self):
-		self.sourcePath = '../data/allProfilesWithCompetitions.csv'
+		self.sourcePath = '../data/competitions/wta-premier-mandatory-and-5-data/allProfilesWithCompetitions.csv'
 		self.hsTeamsPath = '../data/hs-data/hs-table-team.csv'
 		self.hsTeamIdRow = 0
 		self.hsTeamNameRow = 1
