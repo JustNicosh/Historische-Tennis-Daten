@@ -9,7 +9,7 @@ class DifferentRoundsAndSeasonsCollector():
 	"""
 
 	def __init__(self):
-		self.matchesPath = '../data/allGrandSlamMatches.csv'
+		self.matchesPath = '../data/competitions/wta-premier-germany-data/allMatches.csv'
 		self.hsSeasonTopicIdsPath = '../data/hs-data/hs-tennis-season-topics.csv'
 		self.researchTourneyDatesPath = '../data/research-data/tourney-dates.csv'
 		self.sourceGenderFemaleMarker = '-W-'
@@ -28,7 +28,7 @@ class DifferentRoundsAndSeasonsCollector():
 								{'name': 'Tour Finals', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
 								{'name': 'Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
 								{'name': 'WTA Tour Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'2701'}, \
-								{'name': 'Virginia Slims Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'2701'}
+								{'name': 'Virginia Slims Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'2701'}, \
 								{'name': 'Indian Wells', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'883'}, \
 								{'name': 'Indian Wells Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'883'}, \
 								{'name': 'Key Biscayne', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'885'}, \
@@ -63,15 +63,17 @@ class DifferentRoundsAndSeasonsCollector():
 		self.yearRow = 0
 		self.toureyNameRow = 1
 		self.roundMarkerRow = 29
-		self.lastYear = 2008
+		self.lastYear = 2010
 		self.roundNames = [{'sourceName': 'R128', 'hsName': '1. Runde'}, \
 								{'sourceName': 'R64', 'hsName': '2. Runde'}, \
 								{'sourceName': 'R32', 'hsName': '3. Runde'}, \
 								{'sourceName': 'R16', 'hsName': 'Achtelfinale'}, \
 								{'sourceName': 'QF', 'hsName': 'Viertelfinale'}, \
 								{'sourceName': 'SF', 'hsName': 'Halbfinale'}, \
-								{'sourceName': 'F', 'hsName': 'Finale'}]
+								{'sourceName': 'F', 'hsName': 'Finale'}, \
+								{'sourceName': 'RR', 'hsName': 'Gruppenphase'}]
 		self.unknownRoundName = 'unbekannt'
+		self.datesKnown = False
 
 
 	def append_round_season_competition(self, roundSeasonCompetitions, match, yearRow, toureyNameRow, roundMarkerRow):
@@ -125,9 +127,12 @@ class DifferentRoundsAndSeasonsCollector():
 		roundSeasonCompetitions = self.synchronize_with_competiton_id()
 		tourneyDates = csv_handler.CsvHandler().read_csv(self.researchTourneyDatesPath, 'r', 'latin-1')
 		for roundSeasonCompetition in roundSeasonCompetitions:
-			for date in tourneyDates:
-				if roundSeasonCompetition[0] == date[0] and roundSeasonCompetition[1].split('-')[0] == date[1]:
-					roundSeasonCompetition.append(date[2])
+			if self.datesKnown:
+				for date in tourneyDates:
+					if roundSeasonCompetition[0] == date[0] and roundSeasonCompetition[1].split('-')[0] == date[1]:
+						roundSeasonCompetition.append(date[2])
+			else:
+				roundSeasonCompetition.append('00.00.0000-00.00.0000')
 		return roundSeasonCompetitions
 
 	def append_year_and_gender(self):
@@ -170,4 +175,4 @@ class DifferentRoundsAndSeasonsCollector():
 		return outputPath
 
 if __name__ == '__main__':
-	DifferentRoundsAndSeasonsCollector().write_csv('../data/allDifferentGrandSlamRounds.csv')
+	DifferentRoundsAndSeasonsCollector().write_csv('../data/allDifferentRounds.csv')

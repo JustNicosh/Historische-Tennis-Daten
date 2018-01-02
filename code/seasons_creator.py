@@ -11,7 +11,7 @@ class SeasonsCreator():
 	"""
 
 	def __init__(self):
-		self.roundsPath = '../data/allDifferentGrandSlamRounds.csv'
+		self.roundsPath = '../data/competitions/wta-premier-mandatory-and-5-data/allDifferentRounds.csv'
 		self.seasonUrlAppendix = '/admin/season.php?sport_id=5&season_id=&k=2&competition_id='
 
 	def return_new_season_id(self, br, year):
@@ -26,6 +26,7 @@ class SeasonsCreator():
 		"""Imports a new season and returns the season_id.
 		"""
 		importUrl = adminUrl + self.seasonUrlAppendix + row[4]
+		print(importUrl)
 		br = admin_handler.AdminHandler().return_gs_admin_content(importUrl)
 		br.form = list(br.forms())[0]
 		year = row[7]
@@ -73,4 +74,4 @@ class SeasonsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	SeasonsCreator().write_csv('ergebnisDienst', '../data/allRoundsWithSeasonIds.csv')
+	SeasonsCreator().write_csv('endstand', '../data/allRoundsWithSeasonIds.csv')

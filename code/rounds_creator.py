@@ -15,6 +15,7 @@ class RoundsCreator():
 		self.roundUrlAppendixBeforeCompetitionId = '/admin/round.php?sport_id=5&competition_id='
 		self.roundUrlAppendixBeforeSeasonId = '&round_id=&k=2&season_id='
 		self.roundNamesAndOrders = [{'name': 'unbekannt', 'order': '1'}, \
+									{'name': 'Gruppenphase', 'order': '1'}, \
 									{'name': '1. Runde', 'order': '1'}, \
 									{'name': '2. Runde', 'order': '2'}, \
 									{'name': '3. Runde', 'order': '3'}, \
@@ -68,4 +69,4 @@ class RoundsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	RoundsCreator().write_csv('ergebnisDienst', '../data/allRoundsWithRoundIds.csv')
+	RoundsCreator().write_csv('endstand', '../data/allRoundsWithRoundIds.csv')
