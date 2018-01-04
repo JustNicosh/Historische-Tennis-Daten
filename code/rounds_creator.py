@@ -11,7 +11,7 @@ class RoundsCreator():
 	"""
 
 	def __init__(self):
-		self.roundsPath = '../data/allRoundsWithSeasonIds.csv'
+		self.roundsPath = '../data/competitions/wta-premier-mandatory-and-5-data/allRoundsWithSeasonIds.csv'
 		self.roundUrlAppendixBeforeCompetitionId = '/admin/round.php?sport_id=5&competition_id='
 		self.roundUrlAppendixBeforeSeasonId = '&round_id=&k=2&season_id='
 		self.roundNamesAndOrders = [{'name': 'unbekannt', 'order': '1'}, \
@@ -37,6 +37,7 @@ class RoundsCreator():
 		"""Imports a new round and returns the round_id.
 		"""
 		importUrl = adminUrl + self.roundUrlAppendixBeforeCompetitionId + row[4] + self.roundUrlAppendixBeforeSeasonId + row[9]
+		print(importUrl)
 		br = admin_handler.AdminHandler().return_gs_admin_content(importUrl)
 		br.form = list(br.forms())[0]
 		roundName = row[8]
@@ -54,7 +55,7 @@ class RoundsCreator():
 	def import_rounds(self, target):
 		"""Imports all new rounds and returns a list containing all rounds with round_ids.
 		"""
-		adminUrl = admin_handler.AdminHandler()(target)
+		adminUrl = admin_handler.AdminHandler().return_admin_url(target)
 		rounds = csv_handler.CsvHandler().read_csv(self.roundsPath, 'r', 'latin-1', ',', '|', '2')
 		for row in rounds:
 			roundId = self.import_round(row, adminUrl)
