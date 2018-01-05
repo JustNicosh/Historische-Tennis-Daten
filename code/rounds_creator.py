@@ -11,7 +11,7 @@ class RoundsCreator():
 	"""
 
 	def __init__(self):
-		self.roundsPath = '../data/competitions/wta-premier-mandatory-and-5-data/allRoundsWithSeasonIds.csv'
+		self.roundsPath = '../data/competitions/atp-1000-data/allRoundsWithSeasonIds.csv'
 		self.roundUrlAppendixBeforeCompetitionId = '/admin/round.php?sport_id=5&competition_id='
 		self.roundUrlAppendixBeforeSeasonId = '&round_id=&k=2&season_id='
 		self.roundNamesAndOrders = [{'name': 'unbekannt', 'order': '1'}, \
@@ -70,4 +70,4 @@ class RoundsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	RoundsCreator().write_csv('endstand', '../data/allRoundsWithRoundIds.csv')
+	RoundsCreator().write_csv('ergebnisDienst', '../data/allRoundsWithRoundIds.csv')
