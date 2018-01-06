@@ -11,7 +11,7 @@ class RoundsCreator():
 	"""
 
 	def __init__(self):
-		self.roundsPath = '../data/competitions/atp-1000-data/allRoundsWithSeasonIds.csv'
+		self.roundsPath = '../data/competitions/wta-premier-germany-data/allRoundsWithSeasonIds.csv'
 		self.roundUrlAppendixBeforeCompetitionId = '/admin/round.php?sport_id=5&competition_id='
 		self.roundUrlAppendixBeforeSeasonId = '&round_id=&k=2&season_id='
 		self.roundNamesAndOrders = [{'name': 'unbekannt', 'order': '1'}, \
