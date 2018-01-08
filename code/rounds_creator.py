@@ -70,4 +70,4 @@ class RoundsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	RoundsCreator().write_csv('ergebnisDienst', '../data/allRoundsWithRoundIds.csv')
+	RoundsCreator().write_csv('endstand', '../data/allRoundsWithRoundIds.csv')

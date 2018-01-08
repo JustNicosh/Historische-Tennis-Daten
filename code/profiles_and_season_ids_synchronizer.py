@@ -8,8 +8,8 @@ class ProfilesAndSeasonIdsSynchronizer():
 	"""
 
 	def __init__(self):
-		self.profilesPath = '../data/allProfilesWithTeamIds.csv'
-		self.seasonsPath = '../data/allRoundsWithRoundIds.csv'
+		self.profilesPath = '../data/competitions/wta-premier-germany-data/allProfilesWithTeamIds.csv'
+		self.seasonsPath = '../data/competitions/wta-premier-germany-data/allRoundsWithRoundIds.csv'
 
 	def return_profiles_and_seasons(self):
 		"""Returns all seasons and all profiles from given csvs.
@@ -54,4 +54,4 @@ class ProfilesAndSeasonIdsSynchronizer():
 		return outputPath
 
 if __name__ == '__main__':
-	ProfilesAndSeasonIdsSynchronizer().write_csv('../data/allProfilesWithSeasonIds.csv')
+	ProfilesAndSeasonIdsSynchronizer().write_csv('../data/competitions/wta-premier-germany-data/allProfilesWithSeasonIds.csv')

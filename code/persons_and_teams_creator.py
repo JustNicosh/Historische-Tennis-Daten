@@ -11,7 +11,7 @@ class PersonsAndTeamsCreator():
 	"""
 
 	def __init__(self):
-		self.profilesPath = '../data/allProfilesWithSeasonIds.csv'
+		self.profilesPath = '../data/competitions/wta-premier-mandatory-and-5-data/allProfilesWithSeasonIds.csv'
 		self.blankPersonUrlAppendix = '/admin/person.php?sport_id=5&k=2&person_id='
 		self.blankTeamUrlAppendix = '/admin/team.php?sport_id=5&k=2&team_id='
 
@@ -127,7 +127,8 @@ class PersonsAndTeamsCreator():
 		profiles = csv_handler.CsvHandler().read_csv(self.profilesPath, 'r', 'latin-1', ',', '|', '2')
 		modifiedProfiles = []
 
-		for i in range(3500,3570):#(0,10)(10,20) 3570
+		for i in range(0,949):#(0,10)(10,20) 3570
+			print(i)
 			if profiles[i][7] == '0':
 				teamId = self.create_new_person_and_team(profiles[i], adminUrl)
 				profiles[i][7] = teamId
@@ -144,4 +145,4 @@ class PersonsAndTeamsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	PersonsAndTeamsCreator().write_csv('ergebnisDienst', '../data/everyProfileWithTeamId.csv')
+	PersonsAndTeamsCreator().write_csv('endstand', '../data/competitions/wta-premier-mandatory-and-5-data/everyProfileWithTeamId.csv')
