@@ -9,9 +9,9 @@ class MatchesRoundsAndProfilesSynchronizer():
 	"""
 
 	def __init__(self):
-		self.matchesPath = '../data/allGrandSlamMatches.csv'
-		self.profilesPath = '../data/everyProfileWithTeamId.csv'
-		self.roundsPath = '../data/allRoundsWithRoundIds.csv'
+		self.matchesPath = '../data/competitions/wta-premier-mandatory-and-5-data/allMatches.csv'
+		self.profilesPath = '../data/competitions/wta-premier-mandatory-and-5-data/everyProfileWithTeamId.csv'
+		self.roundsPath = '../data/competitions/wta-premier-mandatory-and-5-data/allRoundsWithRoundIds.csv'
 
 	def return_csv_data(self):
 		"""Returns all matches, profiles and rounds from given csvs.
@@ -136,4 +136,4 @@ class MatchesRoundsAndProfilesSynchronizer():
 		return {'outputPathMatchResults': outputPathMatchResults, 'outputPathMatchInfos': outputPathMatchInfos}
 
 if __name__ == '__main__':
-	MatchesRoundsAndProfilesSynchronizer().write_csvs('../data/tennisGrandSlamMatchResults.csv', '../data/tennisGrandSlamMatchInfos.csv')
+	MatchesRoundsAndProfilesSynchronizer().write_csvs('../data/competitions/wta-premier-mandatory-and-5-data/tennisMatchResults.csv', '../data/competitions/wta-premier-mandatory-and-5-data/tennisMatchInfos.csv')
