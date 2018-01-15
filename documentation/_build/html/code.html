@@ -850,6 +850,33 @@ and another containing match infos  (potentialMatch_id, round_id, winner_team_id
 </dd></dl>
 
 </div>
+<div class="section" id="module-competitions_synchronizer">
+<span id="synchronize-competitions"></span><h2>Synchronize Competitions<a class="headerlink" href="#module-competitions_synchronizer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="competitions_synchronizer.CompetitionsSynchronizer">
+<em class="property">class </em><code class="descclassname">competitions_synchronizer.</code><code class="descname">CompetitionsSynchronizer</code><a class="headerlink" href="#competitions_synchronizer.CompetitionsSynchronizer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronizes all different competitions.</p>
+<dl class="method">
+<dt id="competitions_synchronizer.CompetitionsSynchronizer.return_csv_data">
+<code class="descname">return_csv_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#competitions_synchronizer.CompetitionsSynchronizer.return_csv_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all Match Infos and Match Results from given csvs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="competitions_synchronizer.CompetitionsSynchronizer.synchronize_competitons">
+<code class="descname">synchronize_competitons</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#competitions_synchronizer.CompetitionsSynchronizer.synchronize_competitons" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronizes running match_ids in match infos and match_results of different competitions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="competitions_synchronizer.CompetitionsSynchronizer.write_csvs">
+<code class="descname">write_csvs</code><span class="sig-paren">(</span><em>outputPathMatchResults</em>, <em>outputPathMatchInfos</em><span class="sig-paren">)</span><a class="headerlink" href="#competitions_synchronizer.CompetitionsSynchronizer.write_csvs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes one csv document containing match_results and another containing match infos.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-admin_handler">
 <span id="handle-admin"></span><h2>Handle Admin<a class="headerlink" href="#module-admin_handler" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -930,6 +957,7 @@ and another containing match infos  (potentialMatch_id, round_id, winner_team_id
 <li><a class="reference internal" href="#module-profiles_and_season_ids_synchronizer">Synchronize Player Profiles and season_ids</a></li>
 <li><a class="reference internal" href="#module-persons_and_teams_creator">Create Persons and Teams</a></li>
 <li><a class="reference internal" href="#module-matches_rounds_and_profiles_synchronizer">Synchronize Matchresults, round_ids and team_ids</a></li>
+<li><a class="reference internal" href="#module-competitions_synchronizer">Synchronize Competitions</a></li>
 <li><a class="reference internal" href="#module-admin_handler">Handle Admin</a></li>
 <li><a class="reference internal" href="#module-csv_handler">Handle CSVs</a></li>
 </ul>

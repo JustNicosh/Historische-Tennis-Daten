@@ -13,8 +13,9 @@ https://github.com/JustNicosh/Historische-Tennis-Daten/
 Requirements
 ============
 * python (https://www.python.org/)
-* radon (https://pypi.python.org/pypi/radon)
 * mechanize (https://pypi.python.org/pypi/mechanize/)
+* radon (https://pypi.python.org/pypi/radon)
+* Sphinx (https://pypi.python.org/pypi/Sphinx)
 
 Information
 ===========

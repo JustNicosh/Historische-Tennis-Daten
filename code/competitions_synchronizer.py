@@ -61,15 +61,6 @@ class CompetitionsSynchronizer():
 
 			oldMatches += len(infos)
 
-		print(len(allMatchInfos))
-		print(len(allMatchResults))
-		print(allMatchInfos[0])
-		print(allMatchInfos[-1])
-		print(allMatchResults[0])
-		print(allMatchResults[1])
-		print(allMatchResults[-2])
-		print(allMatchResults[-1])
-
 		return {'csvMatchInfosRows': allMatchInfos, 'csvMatchResultsRows': allMatchResults}
 
 	def write_csvs(self, outputPathMatchResults, outputPathMatchInfos):

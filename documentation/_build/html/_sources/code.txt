@@ -81,6 +81,12 @@ Synchronize Matchresults, round_ids and team_ids
 
 .. automodule:: test_matches_rounds_and_profiles_synchronizer
 	:members: TestMatchesRoundsAndProfilesSynchronizer
+
+Synchronize Competitions
+=========================
+
+.. automodule:: competitions_synchronizer
+	:members: CompetitionsSynchronizer
 	
 Handle Admin
 ============

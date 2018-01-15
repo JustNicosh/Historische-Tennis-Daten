@@ -10,11 +10,11 @@ Results and Players
 HEIMSPIEL Data
 ==============
 
-* team_ids and season-topic_ids
-* source: exported db-tables
+* team_ids (source: exported db-tables)
+* season-topic_ids (source: exported db-tables)
 
 Researched Data
 ===============
 
-* tourney dates
-* source: tourney specific wikipedia sites
+* Grand Slam dates (source: tourney specific wikipedia sites)
+* competiton names, competitons_ids (source: hs-data and tourney specific wikipedia sites)
