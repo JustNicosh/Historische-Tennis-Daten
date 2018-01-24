@@ -4,11 +4,19 @@
 import csv_handler
 
 class SeasonDetailsCollector():
-	"""
+	"""Collects Season Details (for DB-table season_detail).
 	"""
 
 	def __init__(self):
 		self.dataSourcePrePath = '../data/competitions/'
+
+	def modify_price_money(self):
+		"""DEV
+		"""
+		priceMoneyYears = csv_handler.CsvHandler().read_csv('../data/research-data/price_money.csv', 'r', 'latin-1')
+		wimbledonFactor = 1.1395
+		for i in range(1,len(priceMoneyYears)):
+			print(priceMoneyYears[i][0])
 
 	def return_all_different_matches(self, matchesSource, roundsWithSeasonIdsSource):
 		"""Returns all different matches.
@@ -28,7 +36,7 @@ class SeasonDetailsCollector():
 		differentSeasonsMarker = []
 		differentSeasons = []
 		for i in range(len(matches)):
-			if matches[i][0] != matches[i-1][0] and matches[i][0] not in differentSeasons:
+			if matches[i][0] != matches[i-1][0] and matches[i][0] not in differentSeasonsMarker:
 				differentSeasonsMarker.append(matches[i][0])
 				differentSeasons.append(matches[i][0:4])
 
@@ -38,19 +46,17 @@ class SeasonDetailsCollector():
 					season.append(roundWithSeasonId[-1])
 					break
 
-		print(differentSeasons)
 		return differentSeasons
 
-	def dev(self, matchesSource, roundsWithSeasonIdsSource):
+	def write_csv(self, matchesSource, roundsWithSeasonIdsSource, outputPath):
+		"""Writes one csv containing all season details.
+		"""
 		seasons = self.return_different_seasons(matchesSource, roundsWithSeasonIdsSource)
-		print(len(seasons))
-
-	def write_csv(self, matchesSource, roundsWithSeasonIdsSource):
-		"""
-		"""
-		details = self.dev(matchesSource, roundsWithSeasonIdsSource)
+		csv_handler.CsvHandler().create_csv(seasons, self.dataSourcePrePath + outputPath)
+		return outputPath
 
 		
 if __name__ == '__main__':
-	SeasonDetailsCollector().write_csv('tour-data/atp-1000-data/allMatches.csv', 'tour-data/atp-1000-data/allRoundsWithSeasonIds.csv')
-	#SeasonDetailsCollector().write_csv('grand-slam-data/allGrandSlamMatches.csv', 'grand-slam-data/allRoundsWithSeasonIds.csv')
+	#SeasonDetailsCollector().write_csv('tour-data/atp-1000-data/allMatches.csv', 'tour-data/atp-1000-data/allRoundsWithSeasonIds.csv', 'tour-data/atp-1000-data/seasonDetails.csv')
+	#SeasonDetailsCollector().write_csv('grand-slam-data/allGrandSlamMatches.csv', 'grand-slam-data/allRoundsWithSeasonIds.csv', 'grand-slam-data/seasonDetails.csv')
+	#SeasonDetailsCollector().modify_price_money()
