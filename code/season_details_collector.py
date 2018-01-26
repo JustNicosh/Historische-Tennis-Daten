@@ -57,6 +57,6 @@ class SeasonDetailsCollector():
 
 		
 if __name__ == '__main__':
-	#SeasonDetailsCollector().write_csv('tour-data/atp-1000-data/allMatches.csv', 'tour-data/atp-1000-data/allRoundsWithSeasonIds.csv', 'tour-data/atp-1000-data/seasonDetails.csv')
+	SeasonDetailsCollector().write_csv('tour-data/wta-premier-mandatory-and-5-data/allMatches.csv', 'tour-data/wta-premier-mandatory-and-5-data/allRoundsWithSeasonIds.csv', 'tour-data/wta-premier-mandatory-and-5-data/seasonDetails.csv')
 	#SeasonDetailsCollector().write_csv('grand-slam-data/allGrandSlamMatches.csv', 'grand-slam-data/allRoundsWithSeasonIds.csv', 'grand-slam-data/seasonDetails.csv')
 	#SeasonDetailsCollector().modify_price_money()
