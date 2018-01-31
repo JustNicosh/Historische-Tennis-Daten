@@ -11,7 +11,7 @@ class SeasonsCreator():
 	"""
 
 	def __init__(self):
-		self.roundsPath = '../data/competitions/atp-500-germany-data/allDifferentRounds.csv'
+		self.roundsPath = '../data/competitions/tour-data/atp-500-data/allDifferentRounds.csv'
 		self.seasonUrlAppendix = '/admin/season.php?sport_id=5&season_id=&k=2&competition_id='
 
 	def return_new_season_id(self, br, year):
@@ -74,4 +74,4 @@ class SeasonsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	SeasonsCreator().write_csv('endstand', '../data/allRoundsWithSeasonIds.csv')
+	SeasonsCreator().write_csv('endstand', '../data/competitions/tour-data/atp-500-data/ENDSTAND_allRoundsWithSeasonIds.csv')

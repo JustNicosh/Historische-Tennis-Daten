@@ -8,7 +8,7 @@ class TeamIdIdentifier():
 	"""
 
 	def __init__(self):
-		self.sourcePath = '../data/competitions/wta-premier-germany-data/allProfilesWithCompetitions.csv'
+		self.sourcePath = '../data/competitions/tour-data/wta-premier-data/allProfilesWithCompetitions.csv'
 		self.hsTeamsPath = '../data/hs-data/hs-table-team.csv'
 		self.hsTeamIdRow = 0
 		self.hsTeamNameRow = 1
@@ -64,4 +64,4 @@ class TeamIdIdentifier():
 		return outputPath
 
 if __name__ == '__main__':
-	TeamIdIdentifier().write_csv('../data/allProfilesWithTeamIds.csv')
+	TeamIdIdentifier().write_csv('../data/competitions/tour-data/wta-premier-data/allProfilesWithTeamIds.csv')

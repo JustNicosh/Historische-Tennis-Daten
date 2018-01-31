@@ -9,7 +9,7 @@ class DifferentRoundsAndSeasonsCollector():
 	"""
 
 	def __init__(self):
-		self.matchesPath = '../data/competitions/wta-premier-germany-data/allMatches.csv'
+		self.matchesPath = '../data/competitions/tour-data/wta-premier-data/allMatches.csv'
 		self.hsSeasonTopicIdsPath = '../data/hs-data/hs-tennis-season-topics.csv'
 		self.researchTourneyDatesPath = '../data/research-data/tourney-dates.csv'
 		self.sourceGenderFemaleMarker = '-W-'
@@ -24,42 +24,71 @@ class DifferentRoundsAndSeasonsCollector():
 								#{'name': 'US Open', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'589'}, \
 								#{'name': 'Wimbledon', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1027'}, \
 								#{'name': 'Wimbledon', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'919'}, \
-								{'name': 'Masters Cup', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
-								{'name': 'Tour Finals', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
-								{'name': 'Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
-								{'name': 'WTA Tour Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'2701'}, \
-								{'name': 'Virginia Slims Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'2701'}, \
-								{'name': 'Indian Wells', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'883'}, \
-								{'name': 'Indian Wells Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'883'}, \
-								{'name': 'Key Biscayne', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'885'}, \
-								{'name': 'Miami Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'885'}, \
-								{'name': 'Rome', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'896'}, \
-								{'name': 'Rome Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'896'}, \
-								{'name': 'Monte Carlo', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'891'}, \
-								{'name': 'Monte Carlo Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'891'}, \
-								{'name': 'Madrid Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'657'}, \
-								{'name': 'Montreal / Toronto', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'939'}, \
-								{'name': 'Canada Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'939'}, \
-								{'name': 'Cincinnati', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'941'}, \
-								{'name': 'Cincinnati Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'941'}, \
-								{'name': 'Paris Indoor', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'661'}, \
-								{'name': 'Paris Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'661'}, \
-								{'name': 'Hamburg', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'929'}, \
-								{'name': 'Hamburg Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'929'}, \
-								{'name': 'Halle', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'913'}, \
-								{'name': 'Indian Wells', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'996'}, \
-								{'name': 'Miami Masters', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'998'}, \
-								{'name': 'Key Biscayne', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'998'}, \
-								{'name': 'Madrid', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1013'}, \
-								{'name': 'Beijing', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'665'}, \
-								{'name': 'Shanghai', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'665'}, \
-								{'name': 'Dubai Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'986'}, \
-								{'name': 'Rome', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1009'}, \
-								{'name': 'Perugia', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1009'}, \
-								{'name': 'Canadian Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1049'}, \
-								{'name': 'Cincinnati', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1047'}, \
-								{'name': 'Stuttgart', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'667'}, \
-								{'name': 'Filderstadt', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'667'}]
+								#{'name': 'Masters Cup', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
+								#{'name': 'Tour Finals', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
+								#{'name': 'Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'965'}, \
+								#{'name': 'WTA Tour Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'2701'}, \
+								#{'name': 'Virginia Slims Championships', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'2701'}, \
+								#{'name': 'Indian Wells', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'883'}, \
+								#{'name': 'Indian Wells Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'883'}, \
+								#{'name': 'Key Biscayne', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'885'}, \
+								#{'name': 'Miami Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'885'}, \
+								#{'name': 'Rome', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'896'}, \
+								#{'name': 'Rome Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'896'}, \
+								#{'name': 'Monte Carlo', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'891'}, \
+								#{'name': 'Monte Carlo Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'891'}, \
+								#{'name': 'Madrid Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'657'}, \
+								#{'name': 'Montreal / Toronto', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'939'}, \
+								#{'name': 'Canada Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'939'}, \
+								#{'name': 'Cincinnati', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'941'}, \
+								#{'name': 'Cincinnati Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'941'}, \
+								#{'name': 'Paris Indoor', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'661'}, \
+								#{'name': 'Paris Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'661'}, \
+								#{'name': 'Hamburg', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'929'}, \
+								#{'name': 'Hamburg Masters', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'929'}, \
+								#{'name': 'Halle', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'913'}, \
+								#{'name': 'Indian Wells', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'996'}, \
+								#{'name': 'Miami Masters', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'998'}, \
+								#{'name': 'Key Biscayne', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'998'}, \
+								#{'name': 'Madrid', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1013'}, \
+								#{'name': 'Beijing', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'665'}, \
+								#{'name': 'Shanghai', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'665'}, \
+								#{'name': 'Dubai Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'986'}, \
+								#{'name': 'Rome', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1009'}, \
+								#{'name': 'Perugia', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1009'}, \
+								#{'name': 'Canadian Open', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1049'}, \
+								#{'name': 'Cincinnati', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1047'}, \
+								#{'name': 'Stuttgart', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'667'}, \
+								#{'name': 'Filderstadt', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'667'}, \
+								{'name': 'Rotterdam', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'870'}, \
+								{'name': 'Acapulco', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'881'}, \
+								{'name': 'Mexico City', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'881'}, \
+								{'name': 'Dubai', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'879'}, \
+								{'name': 'Barcelona', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'893'}, \
+								{'name': "Queen's Club", 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'909'}, \
+								{'name': 'Washington', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'937'}, \
+								{'name': 'Beijing', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'649'}, \
+								{'name': 'Tokyo', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'651'}, \
+								{'name': 'Tokyo Indoor', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'651'}, \
+								{'name': 'Tokyo Outdoor', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'651'}, \
+								{'name': 'Vienna', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'654'}, \
+								{'name': 'Basel', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':''}, \
+								{'name': 'Sydney', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'976'}, \
+								{'name': 'Doha', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1845'}, \
+								{'name': 'Charleston', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1002'}, \
+								{'name': 'Hilton Head', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1002'}, \
+								{'name': 'Birmingham', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1021'}, \
+								{'name': 'Eastbourne', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1023'}, \
+								{'name': 'Stanford', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1041'}, \
+								{'name': 'Oakland', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1041'}, \
+								{'name': 'San Francisco', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1041'}, \
+								{'name': 'New Haven', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1051'}, \
+								{'name': 'Atlanta', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1051'}, \
+								{'name': 'Stratton Mountain', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1051'}, \
+								{'name': 'San Antonio', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1051'}, \
+								{'name': 'Tokyo', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'663'}, \
+								{'name': 'Moscow', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'670'}, \
+								{'name': 'Kremlin Cup', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'670'}]
 		self.yearRow = 0
 		self.toureyNameRow = 1
 		self.roundMarkerRow = 29
@@ -175,4 +204,4 @@ class DifferentRoundsAndSeasonsCollector():
 		return outputPath
 
 if __name__ == '__main__':
-	DifferentRoundsAndSeasonsCollector().write_csv('../data/allDifferentRounds.csv')
+	DifferentRoundsAndSeasonsCollector().write_csv('../data/competitions/tour-data/wta-premier-data/allDifferentRounds.csv')

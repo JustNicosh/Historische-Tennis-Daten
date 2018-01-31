@@ -128,5 +128,7 @@ if __name__ == '__main__':
 	atpWorldTour500GermanyIdentifiers = ['Hamburg', 'Hamburg Masters', 'Halle']
 	wtaPremierMandatoryAndPremier5Identifiers = ['Indian Wells', 'Miami Masters', 'Key Biscayne', 'Madrid', 'Beijing', 'Shanghai', 'Dubai Open', 'Rome', 'Perugia', 'Canadian Open', 'Cincinnati']
 	wtaPremierGermanyIdentifiers = ['Stuttgart', 'Filderstadt']
+	atpWorldTour500Identifiers = ['Rotterdam', 'Acapulco', 'Mexico City', 'Dubai', 'Barcelona', "Queen's Club", 'Washington', 'Beijing', 'Tokyo', 'Tokyo Indoor', 'Tokyo Outdoor', 'Vienna', 'Basel']
+	wtaPremierIdentifiers = ['Sydney', 'Doha', 'Charleston', 'Hilton Head', 'Birmingham', 'Eastbourne', 'Stanford', 'Oakland', 'San Francisco', 'New Haven', 'Atlanta', 'Stratton Mountain', 'San Antonio', 'Tokyo', 'Moscow', 'Kremlin Cup']
 
-	ProfilesAndMatchesCollector(wtaPremierGermanyIdentifiers).write_csvs('../data/allProfiles.csv', '../data/allMatches.csv')
+	ProfilesAndMatchesCollector(wtaPremierIdentifiers).write_csvs('../data/competitions/tour-data/wta-premier-data/allProfiles.csv', '../data/competitions/tour-data/wta-premier-data/allMatches.csv')
