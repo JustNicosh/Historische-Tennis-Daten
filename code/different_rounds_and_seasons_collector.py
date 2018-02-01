@@ -9,7 +9,7 @@ class DifferentRoundsAndSeasonsCollector():
 	"""
 
 	def __init__(self):
-		self.matchesPath = '../data/competitions/tour-data/wta-premier-data/allMatches.csv'
+		self.matchesPath = '../data/competitions/tour-data/atp-500-data/allMatches.csv'
 		self.hsSeasonTopicIdsPath = '../data/hs-data/hs-tennis-season-topics.csv'
 		self.researchTourneyDatesPath = '../data/research-data/tourney-dates.csv'
 		self.sourceGenderFemaleMarker = '-W-'
@@ -72,7 +72,7 @@ class DifferentRoundsAndSeasonsCollector():
 								{'name': 'Tokyo Indoor', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'651'}, \
 								{'name': 'Tokyo Outdoor', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'651'}, \
 								{'name': 'Vienna', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'654'}, \
-								{'name': 'Basel', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':''}, \
+								{'name': 'Basel', 'gender': self.sourceGenderMaleMarker, 'hs-competiton_id':'658'}, \
 								{'name': 'Sydney', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'976'}, \
 								{'name': 'Doha', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1845'}, \
 								{'name': 'Charleston', 'gender': self.sourceGenderFemaleMarker, 'hs-competiton_id':'1002'}, \
@@ -204,4 +204,4 @@ class DifferentRoundsAndSeasonsCollector():
 		return outputPath
 
 if __name__ == '__main__':
-	DifferentRoundsAndSeasonsCollector().write_csv('../data/competitions/tour-data/wta-premier-data/allDifferentRounds.csv')
+	DifferentRoundsAndSeasonsCollector().write_csv('../data/competitions/tour-data/atp-500-data/allDifferentRounds.csv')
