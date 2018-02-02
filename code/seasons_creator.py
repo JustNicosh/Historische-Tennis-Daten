@@ -74,4 +74,4 @@ class SeasonsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	SeasonsCreator().write_csv('ergebnisDienst', '../data/competitions/tour-data/wta-premier-data/allRoundsWithSeasonIds.csv')
+	SeasonsCreator().write_csv('enstand', '../data/competitions/tour-data/wta-premier-data/allRoundsWithSeasonIds.csv')
