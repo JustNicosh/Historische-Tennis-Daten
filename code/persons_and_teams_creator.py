@@ -127,7 +127,7 @@ class PersonsAndTeamsCreator():
 		profiles = csv_handler.CsvHandler().read_csv(self.profilesPath, 'r', 'latin-1', ',', '|', '2')
 		modifiedProfiles = []
 
-		for i in range(0,100):#(0,10)(10,20)
+		for i in range(900,1000):#(0,10)(10,20)
 			print(i)
 			if profiles[i][7] == '0':
 				teamId = self.create_new_person_and_team(profiles[i], adminUrl)
@@ -145,4 +145,4 @@ class PersonsAndTeamsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	PersonsAndTeamsCreator().write_csv('endstand', '../data/competitions/tour-data/atp-500-data/everyProfileWithTeamId.csv')
+	PersonsAndTeamsCreator().write_csv('ergebnisDienst', '../data/competitions/tour-data/atp-500-data/everyProfileWithTeamId.csv')
