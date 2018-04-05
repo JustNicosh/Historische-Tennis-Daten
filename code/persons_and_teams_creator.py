@@ -11,7 +11,7 @@ class PersonsAndTeamsCreator():
 	"""
 
 	def __init__(self):
-		self.profilesPath = '../data/competitions/atp-500-germany-data/allProfilesWithSeasonIds.csv'
+		self.profilesPath = '../data/competitions/tour-data/atp-500-data/allProfilesWithSeasonIds.csv'
 		self.blankPersonUrlAppendix = '/admin/person.php?sport_id=5&k=2&person_id='
 		self.blankTeamUrlAppendix = '/admin/team.php?sport_id=5&k=2&team_id='
 
@@ -110,7 +110,7 @@ class PersonsAndTeamsCreator():
 		seasonIds = profile[8].split('_')
 		for seasonId in seasonIds:
 			for item in br.form.find_control("req[rel_season_ids][]").items:
-				if seasonId in item.get_labels()[0].text:
+				if '- ' + seasonId in item.get_labels()[0].text:
 					item.selected = True
 		# There might occur encoding problemes:
 		try:
@@ -127,7 +127,7 @@ class PersonsAndTeamsCreator():
 		profiles = csv_handler.CsvHandler().read_csv(self.profilesPath, 'r', 'latin-1', ',', '|', '2')
 		modifiedProfiles = []
 
-		for i in range(700,813):#(0,10)(10,20)
+		for i in range(0,100):#(0,10)(10,20)
 			print(i)
 			if profiles[i][7] == '0':
 				teamId = self.create_new_person_and_team(profiles[i], adminUrl)
@@ -145,4 +145,4 @@ class PersonsAndTeamsCreator():
 		return outputPath
 
 if __name__ == '__main__':
-	PersonsAndTeamsCreator().write_csv('ergebnisDienst', '../data/competitions/atp-500-germany-data/everyProfileWithTeamId.csv')
+	PersonsAndTeamsCreator().write_csv('endstand', '../data/competitions/tour-data/atp-500-data/everyProfileWithTeamId.csv')
