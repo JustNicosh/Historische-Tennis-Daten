@@ -129,7 +129,7 @@ class PersonsAndTeamsCreator():
 
 		#for i in range(1200,1400):#(0,10)(10,20)
 
-		for i in range(200,500):#(0,10)(10,20)
+		for i in range(700,900):#(0,10)(10,20)
 			print(i)
 			if profiles[i][7] == '0':
 				teamId = self.create_new_person_and_team(profiles[i], adminUrl)
