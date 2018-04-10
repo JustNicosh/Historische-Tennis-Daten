@@ -9,9 +9,9 @@ class MatchesRoundsAndProfilesSynchronizer():
 	"""
 
 	def __init__(self):
-		self.matchesPath = '../data/competitions/wta-premier-mandatory-and-5-data/allMatches.csv'
-		self.profilesPath = '../data/competitions/wta-premier-mandatory-and-5-data/everyProfileWithTeamId.csv'
-		self.roundsPath = '../data/competitions/wta-premier-mandatory-and-5-data/allRoundsWithRoundIds.csv'
+		self.matchesPath = '../data/competitions/tour-data/atp-500-data/allMatches.csv'
+		self.profilesPath = '../data/competitions/tour-data/atp-500-data/everyProfileWithTeamId.csv'
+		self.roundsPath = '../data/competitions/tour-data/atp-500-data/allRoundsWithRoundIds.csv'
 
 	def return_csv_data(self):
 		"""Returns all matches, profiles and rounds from given csvs.
@@ -136,4 +136,4 @@ class MatchesRoundsAndProfilesSynchronizer():
 		return {'outputPathMatchResults': outputPathMatchResults, 'outputPathMatchInfos': outputPathMatchInfos}
 
 if __name__ == '__main__':
-	MatchesRoundsAndProfilesSynchronizer().write_csvs('../data/competitions/wta-premier-mandatory-and-5-data/tennisMatchResults.csv', '../data/competitions/wta-premier-mandatory-and-5-data/tennisMatchInfos.csv')
+	MatchesRoundsAndProfilesSynchronizer().write_csvs('../data/competitions/tour-data/atp-500-data/tennisMatchResults.csv', '../data/competitions/tour-data/atp-500-data/tennisMatchInfos.csv')
