@@ -19,23 +19,32 @@ class CompetitionsSynchronizer():
 		self.wtaPremierMandatoryAnd5InfosPath = '../data/competitions/wta-premier-mandatory-and-5-data/tennisMatchInfos.csv'
 		self.wtaPremierMandatoryAnd5MatchResultsPath = '../data/competitions/wta-premier-mandatory-and-5-data/tennisMatchResults.csv'
 
+		self.wtaPremierInfosPath = '../data/competitions/tour-data/wta-premier-data/tennisMatchInfos.csv'
+		self.wtaPremierMatchResultsPath = '../data/competitions/tour-data/wta-premier-data/tennisMatchResults.csv'
+		self.atp500InfosPath = '../data/competitions/tour-data/atp-500-data/tennisMatchInfos.csv'
+		self.atp500MatchResultsPath = '../data/competitions/tour-data/atp-500-data/tennisMatchResults.csv'
+
 	def return_csv_data(self):
 		"""Returns all Match Infos and Match Results from given csvs.
 		"""
 		matchInfos = [
-		csv_handler.CsvHandler().read_csv(self.atp1000InfosPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.atp500GermanyInfosPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.tourFinalsInfosPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.wtaPremierGermanyInfosPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.wtaPremierMandatoryAnd5InfosPath, 'r', 'latin-1')
+		#csv_handler.CsvHandler().read_csv(self.atp1000InfosPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.atp500GermanyInfosPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.tourFinalsInfosPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.wtaPremierGermanyInfosPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.wtaPremierMandatoryAnd5InfosPath, 'r', 'latin-1')
+		csv_handler.CsvHandler().read_csv(self.wtaPremierInfosPath, 'r', 'latin-1'),
+		csv_handler.CsvHandler().read_csv(self.atp500InfosPath, 'r', 'latin-1')
 		]
 
 		matchResults = [
-		csv_handler.CsvHandler().read_csv(self.atp1000MatchResultsPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.atp500GermanyMatchResultsPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.tourFinalsMatchResultsPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.wtaPremierGermanyMatchResultsPath, 'r', 'latin-1'),
-		csv_handler.CsvHandler().read_csv(self.wtaPremierMandatoryAnd5MatchResultsPath, 'r', 'latin-1')
+		#csv_handler.CsvHandler().read_csv(self.atp1000MatchResultsPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.atp500GermanyMatchResultsPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.tourFinalsMatchResultsPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.wtaPremierGermanyMatchResultsPath, 'r', 'latin-1'),
+		#csv_handler.CsvHandler().read_csv(self.wtaPremierMandatoryAnd5MatchResultsPath, 'r', 'latin-1')
+		csv_handler.CsvHandler().read_csv(self.wtaPremierMatchResultsPath, 'r', 'latin-1'),
+		csv_handler.CsvHandler().read_csv(self.atp500MatchResultsPath, 'r', 'latin-1')
 		]
 
 		return {'matchInfos': matchInfos, 'matchResults': matchResults}
